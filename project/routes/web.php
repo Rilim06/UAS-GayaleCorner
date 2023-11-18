@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GayaleController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DataController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +20,36 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('gayale', DataController::class);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('products', ProductController::class);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::resource('gayale', GayaleController::class)->middleware(['auth']);
+
+Route::get('/gayale', function () {
+    $user = Auth::user();
+    return view('gayale.main')->with([
+        'user_role' => $user->role_id
+    ]); 
+})->middleware(['auth', 'verified'])->name('gayale');
+
+Route::get('/index', function () {
+    $user = Auth::user();
+    if($user){
+        return view('gayale.main')->with([
+            'user_role' => $user->role_id
+        ]);
+    }else{
+        return view('gayale.index')->with([
+            'user' => $user
+        ]); 
+    }
+})->name('index');
+
+require __DIR__.'/auth.php';
