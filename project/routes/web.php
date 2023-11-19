@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GayaleController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +35,10 @@ Route::resource('gayale', GayaleController::class)->middleware(['auth']);
 
 Route::get('/gayale', function () {
     $user = Auth::user();
+    $products = Product::all();
     return view('gayale.main')->with([
-        'user_role' => $user->role_id
+        'user_role' => $user->role_id,
+        'products' => $products
     ]); 
 })->middleware(['auth', 'verified'])->name('gayale');
 

@@ -1,3 +1,97 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.food-card {
+    transition: transform 0.2s;
+}
+
+.food-card:hover {
+    transform: scale(1.05);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    max-width: 100% !important;
+}
+
+.menu-container {
+    display: flex;
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 0 16px;
+    overflow-y: auto;
+    height: 80vh;
+}
+
+.all#blur.active {
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+}
+
+#popup {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* width: 600px; */
+    padding: 4rem 2rem 8rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, .30);
+    background: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#popup.active {
+    top: 50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.closing {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 99999999;
+    width: fit-content;
+}
+
+.closeBtn {
+    position: relative;
+    width: 6em;
+    height: 4em;
+    border: none;
+    border-top-right-radius: 1rem;
+}
+
+.X {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    width: 2em;
+    height: 1.5px;
+    background-color: maroon;
+    transform: rotate(45deg);
+}
+
+.Y {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    width: 2em;
+    height: 1.5px;
+    background-color: maroon;
+    transform: rotate(-45deg);
+}
+
+.closeBtn:hover>.close {
+    animation: close 0.2s forwards 1.25s;
+}

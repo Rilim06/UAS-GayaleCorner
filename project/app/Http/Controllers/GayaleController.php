@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
-use App\Http\Models\Product;
+use App\Models\Product;
+use Illuminate\Support\Facades\Storage;
 
 class GayaleController extends Controller
 {
@@ -15,10 +16,11 @@ class GayaleController extends Controller
     public function index()
     {
         $user = Auth::user();
-
+        $products = Product::all();
         return view('gayale.main')->with([
-            'user_role' => $user->role_id
-        ]);
+            'products' => $products,
+            'user_role' => $user->role_id       
+        ]); 
     }
 
     /**
@@ -26,7 +28,7 @@ class GayaleController extends Controller
      */
     public function create()
     {
-        //
+        return view('gayale.create');
     }
 
     /**
@@ -34,7 +36,25 @@ class GayaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name'=>'required',
+            'description'=>'required',
+            'price'=>'required',
+            'stock'=>'required',
+            'photo'=>'required'
+        ]);
+
+        $path = $request->file('photo')->storePublicly('photos', 'public');
+        $ext = $request->file('photo')->extension();
+
+        $product = new Product();
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->stock = $request->stock;
+        $product->photo = $path;
+        $product->save();
+        return redirect('/gayale');
     }
 
     /**
@@ -50,7 +70,12 @@ class GayaleController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::find($id);
+        $path = Storage::url($product->photo);
+        return view('gayale.edit')->with([
+            'product'=>$product,
+            'photo'=>$path
+        ]);
     }
 
     /**
@@ -58,14 +83,26 @@ class GayaleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $product = Product::find($id);
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->stock = $request->stock;
+
+        if($request->hasFile('newPhoto')){
+            $path = $request->file('newPhoto')->storePublicly('photos', 'public');
+            $product->photo = $path;
+        }
+
+        $product->save();
+
+        return redirect('/gayale');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        Product::find($id)->delete();
+
+        return redirect('/gayale');
     }
 }
