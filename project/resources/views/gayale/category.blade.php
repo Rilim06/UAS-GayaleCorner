@@ -10,20 +10,19 @@
                 @csrf
                 <button type='submit'>Logout</button>
             </form>
-            <a href="category/clothes">Clothes</a>
-            <a href="category/foods">Foods</a>
-            <a href="category/beverages">Beverages</a>
-            <a href="category/accessories">Accessories</a>
-            <a href="category/others">Others</a>
+            <a href="clothes">Clothes</a>
+            <a href="foods">Foods</a>
+            <a href="beverages">Beverages</a>
+            <a href="accessories">Accessories</a>
+            <a href="others">Others</a>
             <div class="container">
                 <div class="menu-container">
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 w-full h-80">
                         @foreach ($products as $product)
                         <div class="bg-[#ebe0ce] shadow-6xl rounded-lg p-4 food-card">
                             <img class="photo" src="{{asset('storage/' . $product->photo)}}" /><br />
-                            {{$product->price}}
-                            {{$product->category}}
-                            <h1 class="font-bold">Ini User</h1>
+                            {{$product->price}}<br />
+                            {{$product->category}}<br />
                             <button class='bg-[#ee3c20] text-white px-2 py-1 rounded'
                                 onclick='openPopup(
                                     "{{$product->id}}",

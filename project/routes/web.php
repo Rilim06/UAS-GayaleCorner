@@ -36,23 +36,108 @@ Route::resource('gayale', GayaleController::class)->middleware(['auth']);
 Route::get('/gayale', function () {
     $user = Auth::user();
     $products = Product::all();
-    return view('gayale.main')->with([
-        'user_role' => $user->role_id,
-        'products' => $products
-    ]); 
+    if ($user->role_id == 1) {
+        return view('gayale.admin')->with([
+            'user_role' => $user->role_id,
+            'products' => $products
+        ]);
+    } else {
+        return view('gayale.main')->with([
+            'user_role' => $user->role_id,
+            'products' => $products
+        ]);
+    }
 })->middleware(['auth', 'verified'])->name('gayale');
+
+Route::get('category/{category}', function ($category){
+    $user = Auth::user();
+    if($user->role_id == '2'){
+        if($category == 'clothes'){
+            $products = Product::where('category', 'clothes')->get();
+            return view('gayale.category')->with([
+                'products' => $products
+            ]);
+        }
+        if($category == 'foods'){
+            $products = Product::where('category', 'foods')->get();
+            return view('gayale.category')->with([
+                'products' => $products
+            ]);
+        }
+        if($category == 'beverages'){
+            $products = Product::where('category', 'beverages')->get();
+            return view('gayale.category')->with([
+                'products' => $products
+            ]);
+        }
+        if($category == 'accessories'){
+            $products = Product::where('category', 'accessories')->get();
+            return view('gayale.category')->with([
+                'products' => $products
+            ]);
+        }
+        if($category == 'others'){
+            $products = Product::where('category', 'others')->get();
+            return view('gayale.category')->with([
+                'products' => $products
+            ]);
+        }
+    }
+
+    if($user->role_id == '1'){
+        if($category == 'clothes'){
+            $products = Product::where('category', 'clothes')->get();
+            return view('gayale.admincategory')->with([
+                'products' => $products
+            ]);
+        }
+        if($category == 'foods'){
+            $products = Product::where('category', 'foods')->get();
+            return view('gayale.admincategory')->with([
+                'products' => $products
+            ]);
+        }
+        if($category == 'beverages'){
+            $products = Product::where('category', 'beverages')->get();
+            return view('gayale.admincategory')->with([
+                'products' => $products
+            ]);
+        }
+        if($category == 'accessories'){
+            $products = Product::where('category', 'accessories')->get();
+            return view('gayale.admincategory')->with([
+                'products' => $products
+            ]);
+        }
+        if($category == 'others'){
+            $products = Product::where('category', 'others')->get();
+            return view('gayale.admincategory')->with([
+                'products' => $products
+            ]);
+        }
+    }
+});
 
 Route::get('/index', function () {
     $user = Auth::user();
-    if($user){
-        return view('gayale.main')->with([
-            'user_role' => $user->role_id
-        ]);
-    }else{
+    $products = Product::all();
+    if ($user) {
+        if ($user->role_id == 1) {
+            return view('gayale.admin')->with([
+                'user_role' => $user->role_id,
+                'products' => $products
+            ]);
+        } else {
+            return view('gayale.main')->with([
+                'user_role' => $user->role_id,
+                'products' => $products
+            ]);
+        }
+    } else {
         return view('gayale.index')->with([
             'user' => $user
-        ]); 
+        ]);
     }
 })->name('index');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -5,11 +5,12 @@
 <body>
     <div class='all' id='blur'>
         <div class="bg-gray-200 p-4 h-full">
-            <h1 class="text-3xl font-bold underline">Ini Main</h1>
+            <h1 class="text-3xl font-bold underline">Ini Admin</h1>
             <form method="post" action="{{route('logout')}}" class="p-6">
                 @csrf
                 <button type='submit'>Logout</button>
             </form>
+            <a href="gayale/create">Add products</a>
             <a href="category/clothes">Clothes</a>
             <a href="category/foods">Foods</a>
             <a href="category/beverages">Beverages</a>
@@ -21,18 +22,14 @@
                         @foreach ($products as $product)
                         <div class="bg-[#ebe0ce] shadow-6xl rounded-lg p-4 food-card">
                             <img class="photo" src="{{asset('storage/' . $product->photo)}}" /><br />
-                            {{$product->price}}
-                            {{$product->category}}
-                            <h1 class="font-bold">Ini User</h1>
-                            <button class='bg-[#ee3c20] text-white px-2 py-1 rounded'
-                                onclick='openPopup(
-                                    "{{$product->id}}",
-                                    "{{$product->name}}",
-                                    "{{$product->category}}",
-                                    "{{$product->description}}",
-                                    "{{$product->price}}",
-                                    "{{asset("storage/" . $product->photo)}}"
-                                    )'>View</button>
+                            {{$product->name}} <br />
+                            {{$product->category}} <br />
+                            <a href="/gayale/{{$product->id}}/edit">Edit</a>
+                            <form action="/gayale/{{$product->id}}" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit">Delete</button>
+                            </form>
                         </div>
                         @endforeach
                     </div>
@@ -40,10 +37,11 @@
             </div>
         </div>
     </div>
+
+    <!-- Belum siap -->
     <div id='popup'>
         <img class="photo" src="" alt="Product Image" />
         <h2 id="productName"></h2>
-        <p id="productCategory"></p>
         <p id="productDescription"></p>
         <p id="productPrice"></p>
         <p>Order</p>
@@ -61,8 +59,9 @@
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 
+<!-- For popup -->
 <script type='text/javascript'>
-    function openPopup(productId, productName, productCategory, productDescription, productPrice, productPhoto) {
+    function openPopup(productId, productName, productDescription, productPrice, productPhoto) {
         var blur = document.getElementById('blur');
         var popup = document.getElementById('popup');
 
@@ -74,13 +73,11 @@
 
             var popupImage = popup.querySelector('.photo');
             var popupProductName = popup.querySelector('#productName');
-            var popupProductCategory = popup.querySelector('#productCategory');
             var popupProductDescription = popup.querySelector('#productDescription');
             var popupProductPrice = popup.querySelector('#productPrice');
 
             popupImage.src = productPhoto;
             popupProductName.textContent = productName;
-            popupProductCategory.textContent = productCategory;
             popupProductDescription.textContent = productDescription;
             popupProductPrice.textContent = productPrice;
         } else {

@@ -17,10 +17,15 @@ class GayaleController extends Controller
     {
         $user = Auth::user();
         $products = Product::all();
-        return view('gayale.main')->with([
-            'products' => $products,
-            'user_role' => $user->role_id       
-        ]); 
+        if($user->role_id == 1){
+            return view('gayale.admin')->with([
+                'products' => $products,     
+            ]);
+        }else{
+            return view('gayale.main')->with([
+                'products' => $products,      
+            ]); 
+        }
     }
 
     /**
@@ -39,6 +44,7 @@ class GayaleController extends Controller
         $this->validate($request, [
             'name'=>'required',
             'description'=>'required',
+            'category'=>'required',
             'price'=>'required',
             'stock'=>'required',
             'photo'=>'required'
@@ -50,6 +56,7 @@ class GayaleController extends Controller
         $product = new Product();
         $product->name = $request->name;
         $product->description = $request->description;
+        $product->category = $request->category;
         $product->price = $request->price;
         $product->stock = $request->stock;
         $product->photo = $path;
@@ -86,6 +93,7 @@ class GayaleController extends Controller
         $product = Product::find($id);
         $product->name = $request->name;
         $product->description = $request->description;
+        $product->category = $request->category;
         $product->price = $request->price;
         $product->stock = $request->stock;
 

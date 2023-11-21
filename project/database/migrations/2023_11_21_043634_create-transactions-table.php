@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->integer('product_id');
             $table->integer('quantity');
+            $table->string('payment');
             $table->integer('status')->comment('0: packaging, 1: delivering, 2: arrived, 3: accepted');
             $table->timestamps();
         });
