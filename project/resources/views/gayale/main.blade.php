@@ -19,20 +19,19 @@
                 <div class="menu-container">
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 w-full h-80">
                         @foreach ($products as $product)
-                        <div class="bg-[#ebe0ce] shadow-6xl rounded-lg p-4 food-card">
+                        <div class="bg-[#ebe0ce] shadow-6xl rounded-lg p-4 food-card"
+                            onclick='openPopup(
+                                        "{{$product->id}}",
+                                        "{{$product->name}}",
+                                        "{{$product->category}}",
+                                        "{{$product->description}}",
+                                        "{{$product->price}}",
+                                        "{{asset("storage/" . $product->photo)}}"
+                                    )'>
                             <img class="photo" src="{{asset('storage/' . $product->photo)}}" /><br />
                             {{$product->price}}
                             {{$product->category}}
                             <h1 class="font-bold">Ini User</h1>
-                            <button class='bg-[#ee3c20] text-white px-2 py-1 rounded'
-                                onclick='openPopup(
-                                    "{{$product->id}}",
-                                    "{{$product->name}}",
-                                    "{{$product->category}}",
-                                    "{{$product->description}}",
-                                    "{{$product->price}}",
-                                    "{{asset("storage/" . $product->photo)}}"
-                                    )'>View</button>
                         </div>
                         @endforeach
                     </div>
@@ -88,5 +87,4 @@
             popup.classList.remove('active');
         }
     }
-
 </script>
