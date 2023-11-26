@@ -11,6 +11,7 @@
                 <button type='submit'>Logout</button>
             </form>
             <a href="/gayale">Home</a>
+            <a href="/cart">Cart</a>
             <a href="clothes">Clothes</a>
             <a href="foods">Foods</a>
             <a href="beverages">Beverages</a>
@@ -46,7 +47,21 @@
         <p id="productCategory"></p>
         <p id="productDescription"></p>
         <p id="productPrice"></p>
-        <p>Order</p>
+
+        <form action="/cart" method="post">
+            @csrf
+            <div class="quantity">
+                <label for="productQuantity">Quantity:</label>
+                <div class="quantity-controls">
+                    <button type="button" class="quantity-decrease">-</button>
+                    <input type="number" id="productQuantity" name="quantity" value="1" min="1">
+                    <button type="button" class="quantity-increase">+</button>
+                </div>
+            </div>
+            <input type="hidden" id="productId" name="productId" value="">
+            <input type="hidden" id="productPriceHidden" name="productPrice" value="">
+            <button type="submit">Add to Cart</button>
+        </form>
 
         <div class="closing">
             <a class="closing" onclick='openPopup()'>
@@ -61,31 +76,55 @@
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+
+<!-- popup -->
 <script type='text/javascript'>
     function openPopup(productId, productName, productCategory, productDescription, productPrice, productPhoto) {
-        var blur = document.getElementById('blur');
-        var popup = document.getElementById('popup');
+    var blur = document.getElementById('blur');
+    var popup = document.getElementById('popup');
 
-        var isPopupActive = popup.classList.contains('active');
+    var isPopupActive = popup.classList.contains('active');
 
-        if (!isPopupActive) {
-            blur.classList.add('active');
-            popup.classList.add('active');
+    if (!isPopupActive) {
+        blur.classList.add('active');
+        popup.classList.add('active');
 
-            var popupImage = popup.querySelector('.photo');
-            var popupProductName = popup.querySelector('#productName');
-            var popupProductCategory = popup.querySelector('#productCategory');
-            var popupProductDescription = popup.querySelector('#productDescription');
-            var popupProductPrice = popup.querySelector('#productPrice');
+        var popupImage = popup.querySelector('.photo');
+        var popupProductName = popup.querySelector('#productName');
+        var popupProductCategory = popup.querySelector('#productCategory');
+        var popupProductDescription = popup.querySelector('#productDescription');
+        var popupProductPrice = popup.querySelector('#productPrice');
+        var productIdInput = popup.querySelector('#productId');
 
-            popupImage.src = productPhoto;
-            popupProductName.textContent = productName;
-            popupProductCategory.textContent = productCategory;
-            popupProductDescription.textContent = productDescription;
-            popupProductPrice.textContent = productPrice;
-        } else {
-            blur.classList.remove('active');
-            popup.classList.remove('active');
-        }
+        popupImage.src = productPhoto;
+        popupProductName.textContent = productName;
+        popupProductCategory.textContent = productCategory;
+        popupProductDescription.textContent = productDescription;
+        popupProductPrice.textContent = productPrice;
+        productIdInput.value = productId;
+    } else {
+        blur.classList.remove('active');
+        popup.classList.remove('active');
     }
+}
+
+
+    $(document).ready(function () {
+        $('.quantity-controls').on('click', '.quantity-decrease', function () {
+            var input = $(this).parent().find('input[type="number"]');
+            var currentValue = parseInt(input.val(), 10);
+            if (!isNaN(currentValue) && currentValue > 1) {
+                input.val(currentValue - 1);
+            }
+        });
+
+        $('.quantity-controls').on('click', '.quantity-increase', function () {
+            var input = $(this).parent().find('input[type="number"]');
+            var currentValue = parseInt(input.val(), 10);
+            if (!isNaN(currentValue)) {
+                input.val(currentValue + 1);
+            }
+        });
+    });
 </script>

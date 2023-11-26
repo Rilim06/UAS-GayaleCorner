@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GayaleController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
+use App\Models\Cart;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +35,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('gayale', GayaleController::class)->middleware(['auth']);
+Route::resource('cart', CartController::class)->middleware(['auth']);
+
+Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
+Route::get('/checkout', [TransactionController::class, 'show'])->name('transaction.show');
 
 Route::get('/gayale', function () {
     $user = Auth::user();
