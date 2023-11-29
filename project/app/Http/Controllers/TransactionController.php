@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use App\Models\Cart;
-use App\Models\Product;
+use App\Models\transaction;
 
 class TransactionController extends Controller
 {
@@ -30,7 +31,31 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'address' => 'required',
+            'photo' => 'required'
+        ]);
+
+        $path = $request->file('photo')->storePublicly('photos', 'public');
+        $user = Auth::user();
+        $carts = Cart::all();
+        $transactionID = Str::uuid();
+
+        foreach ($request->input('carts') as $cart) {
+            $transaction = new Transaction();
+            $transaction->transaction_id = $transactionID;
+            $transaction->user_id = $user->id;
+            $transaction->product_id = $cart['product_id'];
+            $transaction->quantity = $cart['quantity'];
+            $transaction->address = $request->address;
+            $transaction->payment = $path;
+            $transaction->save();
+        }
+
+        $checkedCarts = Cart::where('is_checked', 1)->get();
+        $checkedCarts->each->delete();
+
+        return redirect('/gayale');
     }
 
     /**
@@ -39,7 +64,7 @@ class TransactionController extends Controller
     public function show()
     {
         $user = Auth::user();
-        $carts = Cart::where('user_id', $user->id)->where('is_checked', 1)->with('product')->get();
+        $carts = Cart::where('user_id', $user->id)->where('is_checked', 1)->with('transaction')->get();
 
         return view('gayale.transaction')->with([
             'carts' => $carts

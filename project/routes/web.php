@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Transaction;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +37,19 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('gayale', GayaleController::class)->middleware(['auth']);
 Route::resource('cart', CartController::class)->middleware(['auth']);
+Route::resource('transaction', TransactionController::class)->middleware(['auth']);
 
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 Route::get('/checkout', [TransactionController::class, 'show'])->name('transaction.show');
+
+Route::get('/history', function() {
+    $user = Auth::user();
+    $transactions = Transaction::with('product')->where('user_id', $user->id)->get();
+    $groupedTransactions = $transactions->groupBy('transaction_id');
+    return view('gayale.history')->with([
+        'groupedTransactions' => $groupedTransactions
+    ]);
+});
 
 Route::get('/gayale', function () {
     $user = Auth::user();

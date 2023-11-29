@@ -12,6 +12,7 @@
             </form>
             <a href="/gayale">Home</a>
             <a href="/cart">Cart</a>
+            <a href="/history">History</a>
             <a href="clothes">Clothes</a>
             <a href="foods">Foods</a>
             <a href="beverages">Beverages</a>

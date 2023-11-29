@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->string('transaction_id');
             $table->integer('user_id');
             $table->integer('product_id');
             $table->integer('quantity');
             $table->string('payment');
-            $table->integer('status')->comment('0: packaging, 1: delivering, 2: arrived, 3: accepted');
+            $table->string('address');
+            $table->integer('status')->comment('0: pending, 1: packaging, 2: delivering, 3: arrived')->default(0);
             $table->timestamps();
         });
     }

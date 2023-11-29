@@ -52,6 +52,7 @@
     visibility: visible;
     opacity: 1;
     transition: 0.5s;
+    overflow-y: auto;
 }
 
 .closing {
@@ -94,4 +95,8 @@
 
 .closeBtn:hover>.close {
     animation: close 0.2s forwards 1.25s;
+}
+
+.photo {
+    width: 50%;
 }

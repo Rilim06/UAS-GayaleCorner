@@ -16,6 +16,7 @@
                 <button type='submit'>Logout</button>
             </form>
             <a href="/cart">Cart</a>
+            <a href="/history">History</a>
             <a href="category/clothes">Clothes</a>
             <a href="category/foods">Foods</a>
             <a href="category/beverages">Beverages</a>
