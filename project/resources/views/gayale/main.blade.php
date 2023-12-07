@@ -27,11 +27,11 @@
             <div class="w-[80%] mx-auto">
                 <div class="swiper topSwiper w-full h-[30rem] mt-8 rounded-md">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="storage/photos/swiper (1).jpg" alt=""></div>
-                        <div class="swiper-slide"><img src="storage/photos/swiper (2).jpg" alt=""></div>
-                        <div class="swiper-slide"><img src="storage/photos/swiper (3).jpg" alt=""></div>
-                        <div class="swiper-slide"><img src="storage/photos/swiper (4).jpg" alt=""></div>
-                        <div class="swiper-slide"><img src="storage/photos/swiper (5).jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="storage/photos/komarin.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="storage/photos/komari.jpeg" alt=""></div>
+                        <div class="swiper-slide"><img src="storage/photos/Genshin 4.1.jpeg" alt=""></div>
+                        <div class="swiper-slide"><img src="storage/photos/Baizhu Qiqi Web Event Wallpaper.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="storage/photos/aliongjpeg.jpeg" alt=""></div>
                     </div>
                     <div class="swiper-button-next drop-shadow-lg"></div>
                     <div class="swiper-button-prev drop-shadow-lg"></div>
