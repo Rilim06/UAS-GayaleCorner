@@ -24,7 +24,8 @@
                         <div class="bg-[#ebe0ce] shadow-6xl rounded-lg p-4 food-card">
                             <img class="photo" src="{{asset('storage/' . $product->photo)}}" /><br />
                             {{$product->name}} <br />
-                            {{$product->category}} <br />
+                            Category: {{$product->category}} <br />
+                            {{$product->description}} <br />
                             <a href="/gayale/{{$product->id}}/edit">Edit</a>
                             <form action="/gayale/{{$product->id}}" method="post">
                                 @method('DELETE')

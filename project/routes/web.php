@@ -42,6 +42,31 @@ Route::resource('transaction', TransactionController::class)->middleware(['auth'
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 Route::get('/checkout', [TransactionController::class, 'show'])->name('transaction.show');
 
+Route::get('/order', function(){
+    $user = Auth::user();
+    $products = Product::all();
+    $transactions = Transaction::all();
+    $groupedTransactions = $transactions->groupBy('transaction_id');
+    if ($user) {
+        if ($user->role_id == 1) {
+            return view('gayale.order')->with([
+                'user_role' => $user->role_id,
+                'products' => $products,
+                'groupedTransactions' => $groupedTransactions
+            ]);
+        } else {
+            return view('gayale.main')->with([
+                'user_role' => $user->role_id,
+                'products' => $products
+            ]);
+        }
+    } else {
+        return view('gayale.index')->with([
+            'user' => $user
+        ]);
+    }
+});
+
 Route::get('/history', function() {
     $user = Auth::user();
     $transactions = Transaction::with('product')->where('user_id', $user->id)->get();
