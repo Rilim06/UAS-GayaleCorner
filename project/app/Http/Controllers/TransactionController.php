@@ -66,13 +66,13 @@ class TransactionController extends Controller
         $user = Auth::user();
         $carts = Cart::where('user_id', $user->id)->where('is_checked', 1)->with('transaction')->get();
 
-        if($carts->isEmpty()){
+        if ($carts->isEmpty()) {
             return redirect('/cart');
         } else {
             return view('gayale.transaction')->with([
                 'carts' => $carts
             ]);
-        }        
+        }
     }
 
     /**
@@ -86,9 +86,17 @@ class TransactionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $transactionId)
     {
-        //
+        $status = $request->input('status');
+        $transactions = Transaction::where('transaction_id', $transactionId)->get();
+
+        foreach ($transactions as $transaction) {
+            $transaction->status = $status;
+            $transaction->save();
+        }
+
+        return redirect('/order');
     }
 
     /**

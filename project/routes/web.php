@@ -45,7 +45,7 @@ Route::get('/checkout', [TransactionController::class, 'show'])->name('transacti
 Route::get('/order', function(){
     $user = Auth::user();
     $products = Product::all();
-    $transactions = Transaction::all();
+    $transactions = Transaction::with('product')->get();
     $groupedTransactions = $transactions->groupBy('transaction_id');
     if ($user) {
         if ($user->role_id == 1) {
