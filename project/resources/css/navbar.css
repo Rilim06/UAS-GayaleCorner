@@ -31,7 +31,7 @@
   padding: 0;
   margin: 0;
   max-width: 100%;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 body {
@@ -130,7 +130,7 @@ a {
   }
 
   .nav {
-    height: 8rem;
+    height: 7rem;
   }
 
   .nav__menu::-webkit-scrollbar {
@@ -151,7 +151,7 @@ a {
 
 .nav__link {
   padding: 9px 20px;
-  margin-top: 16.5px;
+  margin-top: 22px;
   /* margin-bottom: 10px; */
   display: flex;
   justify-content: space-between;
@@ -283,7 +283,7 @@ a {
   }
 
   .nav {
-    height: calc(var(--header-height));
+    height: 6rem;
     display: flex;
     justify-content: space-between;
   }

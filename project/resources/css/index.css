@@ -1,0 +1,507 @@
+.car-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.car {
+    width: 20em;
+    height: 12.5em;
+    position: relative;
+    opacity: 1;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 4;
+    animation: carMove 0.3s infinite;
+}
+
+.car .bodycar {
+    position: absolute;
+    top: 0;
+    left: 0.875em;
+    width: 14.375em;
+    height: 10em;
+    background: #fff;
+}
+
+.car .bodycar:before {
+    content: "";
+    position: absolute;
+    left: -0.875em;
+    border-radius: 10px 10px 0 0;
+    width: 15.875em;
+    z-index: 2;
+    height: 0.75em;
+    background: #3190dd;
+}
+
+.car .bodycar .isicar {
+    position: absolute;
+    background: #fff;
+    width: 18.125em;
+    height: 3.75em;
+    bottom: -0.625em;
+    border-radius: 0 0 10px 10px;
+}
+
+.car .bodycar .isicar:before {
+    content: "";
+    background: #fff;
+    position: absolute;
+    top: -1.8125em;
+    right: 0;
+    width: 5em;
+    height: 2.5em;
+    z-index: 1;
+    border-radius: 0 14px 0 0;
+    transform: rotate(17deg);
+}
+
+.car .bodycar .isicar:after {
+    content: "";
+    background: #fff;
+    position: absolute;
+    top: -5.125em;
+    right: 1.0625em;
+    width: 5.625em;
+    height: 2.5em;
+    z-index: 1;
+    border-radius: 10px 0 0 0;
+    transform: rotate(75deg);
+}
+
+.ban .wheel {
+    position: absolute;
+    width: 3.75em;
+    height: 3.75em;
+    background: #3c464c;
+    border-radius: 50%;
+    bottom: 0;
+    left: 3em;
+    z-index: 14;
+    animation: carMove 0.3s 0.2s;
+}
+
+.ban .wheel:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: #fff;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ban .wheel:nth-of-type(2) {
+    left: 13.125em;
+}
+
+.car .decos {
+    width: 18.125em;
+    height: 10.5em;
+    position: absolute;
+    z-index: 12;
+    top: 0;
+    left: 0.875em;
+}
+
+.car .line-bot {
+    position: absolute;
+    bottom: 0.5625em;
+    height: 3px;
+    width: 100%;
+    background: #e1e8ef;
+}
+
+.car .door {
+    position: absolute;
+    left: 7.5em;
+    bottom: 0;
+    width: 3.75em;
+    height: 8.8125em;
+    border-radius: 10px 10px 0 0;
+    border: 3px solid #e1e8ef;
+    border-bottom: 0;
+    background: #fff;
+}
+
+.car .door:after {
+    content: "";
+    position: absolute;
+    top: 0.375em;
+    left: 0.4375em;
+    width: 2.875em;
+    height: 2em;
+    border-radius: 4px;
+    background: #5bc2ef;
+}
+
+.car .door .handle {
+    position: absolute;
+    right: 0.625em;
+    top: 4.375em;
+    width: 0.625em;
+    height: 0.625em;
+    background: #e1e8ef;
+    border-radius: 50%;
+}
+
+.car .door .handle:after {
+    content: "";
+    width: 1.25em;
+    height: 0.25em;
+    border-radius: 10px;
+    background: #e1e8ef;
+    position: absolute;
+    top: 50%;
+    left: -0.3125em;
+    margin-top: -0.125em;
+}
+
+.car .door .bottom {
+    position: absolute;
+    bottom: 0.375em;
+    left: 0.6875em;
+    width: 2.375em;
+    height: 0.75em;
+}
+
+.car .door .bottom:before,
+.car .door .bottom:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0.1875em;
+    background: #e1e8ef;
+    height: 0.25em;
+    border-radius: 10px;
+    margin-bottom: 0.25em;
+}
+
+.car .window {
+    position: absolute;
+    top: 1.125em;
+    left: 12.5em;
+    width: 2em;
+    background: #5bc2ef;
+    height: 4.5em;
+    border-radius: 10px 10px 0 10px;
+}
+
+.car .window:before {
+    content: "";
+    width: 100%;
+    height: 0.625em;
+    background: #5bc2ef;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 3.0625em;
+    border-radius: 0 10px 10px 10px;
+}
+
+.car .light {
+    position: absolute;
+    width: 0.625em;
+    height: 0.625em;
+    background: #ff8c40;
+    right: 3.75em;
+    bottom: 2.5em;
+    border-radius: 3px;
+}
+
+.car .light-front {
+    position: absolute;
+    width: 0.5em;
+    height: 0.5em;
+    background: #ff8c40;
+    right: -0.1875em;
+    bottom: 3.5625em;
+    border-radius: 3px;
+}
+
+.car .light-front:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ff8c40;
+    top: 100%;
+    height: 0.9375em;
+    border-radius: 3px;
+    margin-top: 0.125em;
+}
+
+.car .antenna {
+    position: absolute;
+    width: 1.625em;
+    height: 0.625em;
+    background: #fff;
+    bottom: 100%;
+    left: 1.0625em;
+    border-radius: 4px 4px 0 0;
+}
+
+.car .antenna:before {
+    content: "";
+    position: absolute;
+    width: 2.375em;
+    height: 0.25em;
+    background: #fff;
+    bottom: 0;
+    left: -1.375em;
+    transform: rotate(55deg);
+    transform-origin: right;
+    border-radius: 4px;
+}
+
+.windy {
+    position: absolute;
+    z-index: -1;
+    right: 100%;
+    height: 100%;
+    margin-right: -1.25em;
+}
+
+.windy .per {
+    position: absolute;
+    background: #F98538;
+    border-radius: 0.625em;
+    height: 0.625em;
+}
+
+.windy .per1 {
+    width: 4.375em;
+    position: absolute;
+    right: 0;
+    top: 1.5625em;
+    animation: windy 1s -1s linear infinite;
+}
+
+.windy .per2 {
+    width: 6.25em;
+    right: 2.5em;
+    top: 3.75em;
+    animation: windy 1s -2s linear infinite;
+}
+
+.windy .per3 {
+    width: 3.125em;
+    right: 0;
+    top: 6.5625em;
+    animation: windy 1s -1s linear infinite;
+}
+
+.windy .per4 {
+    width: 3.75em;
+    right: 5em;
+    top: 8.4375em;
+    animation: windy 1s 1s linear infinite;
+}
+
+.windy .per5 {
+    width: 4.375em;
+    right: 1.875em;
+    top: 9.0625em;
+    animation: windy 1s -1.5s linear infinite;
+}
+
+.car-wrapper_inner {
+    position: relative;
+    z-index: 4;
+}
+
+@keyframes carMove {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-1px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes windy {
+    0% {
+        transform: translateX(100%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-400%);
+        opacity: 0;
+    }
+}
+
+
+@keyframes bgIn {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: -100%;
+    }
+}
+
+@keyframes wrapperIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Second */
+.milk-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.glass {
+    position: relative;
+    width: 100px;
+    height: 150px;
+    background-color: transparent;
+    border: 8px solid #d7d7d7;
+    border-radius: 10px 10px 35px 35px;
+    overflow: hidden;
+}
+
+.milk {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: #F98538;
+    border-radius: 5px 5px 30px 30px;
+    animation: fillMilk 2s ease-in-out infinite;
+}
+
+/* Keyframes to animate the milk in a non-uniform way, simulating a filling glass */
+@keyframes fillMilk {
+
+    0%,
+    100% {
+        height: 10%;
+        border-radius: 5px 5px 30px 30px;
+    }
+
+    50% {
+        height: 80%;
+        border-radius: 25px;
+    }
+}
+
+/* third */
+#outline {
+    stroke-dasharray: 2.42777px, 242.77666px;
+    stroke-dashoffset: 0;
+    -webkit-animation: anim 1.6s linear infinite;
+    animation: anim 1.6s linear infinite;
+}
+
+@-webkit-keyframes anim {
+    12.5% {
+        stroke-dasharray: 33.98873px, 242.77666px;
+        stroke-dashoffset: -26.70543px;
+    }
+
+    43.75% {
+        stroke-dasharray: 84.97183px, 242.77666px;
+        stroke-dashoffset: -84.97183px;
+    }
+
+    100% {
+        stroke-dasharray: 2.42777px, 242.77666px;
+        stroke-dashoffset: -240.34889px;
+    }
+}
+
+@keyframes anim {
+    12.5% {
+        stroke-dasharray: 33.98873px, 242.77666px;
+        stroke-dashoffset: -26.70543px;
+    }
+
+    43.75% {
+        stroke-dasharray: 84.97183px, 242.77666px;
+        stroke-dashoffset: -84.97183px;
+    }
+
+    100% {
+        stroke-dasharray: 2.42777px, 242.77666px;
+        stroke-dashoffset: -240.34889px;
+    }
+}
+
+/* Swiper */
+/* Swiper */
+
+:root {
+    --swiper-theme-color: black !important;
+    /* Change to red color */
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    aspect-ratio: 1/1;
+    /* width: 100%; */
+    /* height: 100%; */
+    object-fit: cover;
+}
+
+/* Footer */
+.rowi {
+    display: flex;
+    /* flex-wrap: wrap; */
+    max-width: 100%;
+}
+
+.footer {
+    background-color: #08243A;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.footer-col h4 {
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 28px;
+    font-weight: 800;
+    position: relative;
+}
+
+.footer-col .social-links a {
+    
+   /* margin-bottom: 10px; */
+    text-align: center;
+    line-height: 40px;
+    color: #ffffff;
+}
+
+.wavekedua{
+    background-color: #08243A;
+}
