@@ -5,7 +5,6 @@
 <body>
     <div class='all' id='blur'>
         <div class="p-4 h-full">
-            <!-- <h1 class="text-3xl font-bold underline">Ini Admin</h1> -->
             <form method="post" action="{{route('logout')}}" class="p-6">
                 @csrf
                 <button type='submit'>Logout</button>
@@ -17,9 +16,11 @@
             <a href="category/accessories">Accessories</a>
             <a href="category/others">Others</a>
             <div class="w-[90%] mx-auto">
-                <a href="gayale/create" class=""><button class="bg-[#08243A] hover:bg-[#08243A] text-white text-center text-3xl py-4 px-8 mt-10 rounded-full lg:text-sm lg:px-5 lg:py-3 xl:text-md 2xl:text-lg">
+                <a href="gayale/create" class="">
+                    <button class="bg-[#08243A] hover:bg-[#0d3b5f] text-white text-center text-3xl py-4 px-8 mt-10 rounded-full lg:text-sm lg:px-5 lg:py-3 xl:text-md 2xl:text-lg">
                         Tambah Item
-                    </button></a>
+                    </button>
+                </a>
                 <div class="menu-container mt-8 lg:mt-4">
                     <div class="w-full grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-4 2xl:grid-cols-3">
                         @foreach ($products as $product)
