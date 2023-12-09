@@ -8,13 +8,13 @@
     user-select: none;
 }
 
-/* #popup {
+#popup {
     position: fixed;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 600px;
-    padding: 4rem 2rem 8rem 2rem;
+    /* width: 600px; */
+    /* padding: 4rem 2rem 8rem 2rem; */
     border-radius: 1rem;
     box-shadow: 0 5px 30px rgba(0, 0, 0, .30);
     background: #fff;
@@ -29,7 +29,7 @@
     opacity: 1;
     transition: 0.5s;
     overflow-y: auto;
-} */
+}
 
 #popupBukti {
     position: fixed;
