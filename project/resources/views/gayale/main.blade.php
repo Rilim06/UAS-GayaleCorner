@@ -113,14 +113,14 @@
             <div class="w-[90%] lg:w-[75%] mx-auto">
                 <div class="swiper topSwiper w-full aspect-square rounded-xl lg:aspect-auto lg:h-[30rem] lg:mt-8 xl:h-[35rem] 2xl:h-[40rem]">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img class="" src="storage/photos/swiper (1).jpg" alt=""></div>
-                        <div class="swiper-slide"><img src="storage/photos/swiper (2).jpg" alt=""></div>
-                        <div class="swiper-slide"><img src="storage/photos/swiper (3).jpg" alt=""></div>
-                        <div class="swiper-slide"><img src="storage/photos/swiper (4).jpg" alt=""></div>
-                        <div class="swiper-slide"><img src="storage/photos/swiper (5).jpg" alt=""></div>
+                        <div class="swiper-slide"><img class="object-contain mx-auto aspect-square h-full rounded-xl" src="storage/photos/swiper (1).jpg" alt=""></div>
+                        <div class="swiper-slide"><img class="object-contain mx-auto aspect-square h-full rounded-xl" src="storage/photos/swiper (2).jpg" alt=""></div>
+                        <div class="swiper-slide"><img class="object-contain mx-auto aspect-square h-full rounded-xl" src="storage/photos/swiper (3).jpg" alt=""></div>
+                        <div class="swiper-slide"><img class="object-contain mx-auto aspect-square h-full rounded-xl" src="storage/photos/swiper (4).jpg" alt=""></div>
+                        <div class="swiper-slide"><img class="object-contain mx-auto aspect-square h-full rounded-xl" src="storage/photos/swiper (5).jpg" alt=""></div>
                     </div>
-                    <div class="swiper-button-next drop-shadow-lg"></div>
-                    <div class="swiper-button-prev drop-shadow-lg"></div>
+                    <div class="swiper-button-next drop-shadow-xl"></div>
+                    <div class="swiper-button-prev drop-shadow-xl"></div>
                     <div class="swiper-pagination"></div>
                 </div>
                 <h3 class="font-bold mt-36 text-7xl sm:text-5xl sm:mt-12 lg:mt-8 lg:text-2xl xl:text-3xl text-center">All Categories</h3>
