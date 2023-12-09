@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Transaction;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
