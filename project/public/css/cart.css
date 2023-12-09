@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+*{
+    font-family: "Manrope";
+}
+.container{
+    text-align: center;
+}
+
+.cartTitle{
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin-bottom: 3.62rem;
+}
+
+.itemContainer{
+    margin: 0 auto;
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.item{
+    display: flex;
+    width: 70rem;
+    height: 14.375rem;
+    justify-content: space-between;
+    border-radius: 0.9375rem;
+    background: var(--White, #F7F7FF);
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.itemSection{
+    display: flex;
+    align-items: center;
+    flex: 25%;
+}
+
+.delete{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete > form > button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.pic > img{
+    width: 10.25rem;
+    height: auto;
+}
+
+.infoContent{
+    text-align: start;
+    margin: 20px;
+}
+
+.infoContent > h3, .infoContent> p{
+    margin: 0;
+    font-size: 2rem;
+}
+
+.infoCount{
+    display: flex;
+    justify-content: space-around;
+    gap: 2.5rem;
+}
+
+.infoCount > h3{
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.countBtn{
+    border-radius: 0.3125rem;
+    color: var(--Crusta, #F98538);
+    background: var(--Tiber, #08243A);
+    height: 3.0625rem;
+    width:3.0625rem;
+    font-weight: bold;
+    margin: auto;
+}
+
+.total{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.total > h3, .total > p{
+    font-size: 1.75rem;
+}
+
+button{
+    transition: 300ms;
+    cursor:pointer;
+}
+
+button:hover{
+    filter: brightness(80%);
+    scale: 1.2;
+}
+
+.address{
+    margin-top: 12.25rem;
+    width: 70rem;
+    height: 15rem;
+    padding: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.address > img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.addressContent{
+    margin: auto;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.addressTop{
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+    opacity: 70%;
+}
+
+.addressTop > p{
+    font-size: 1.75rem;
+    gap: 20px;
+    margin: 0;
+}
+
+.addressBot > h3{
+    text-align: start;
+    margin: 0;
+    font-size: 2.25rem;
+}
+
+.checkout{
+    margin: 7.25rem 0;
+}
+
+.checkoutContent{
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.checkoutLeft, .checkoutRight{
+    flex: 40%;
+    margin: 2rem;
+}
+
+.checkoutPrice{
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+}
+
+.sub{
+    margin-bottom: 1.5rem;
+}
+
+.checkoutPrice > p{
+    margin: 0;
+}
+
+.checkoutTotal{
+    margin-top: 5.12rem;
+    font-size: 2.25rem;
+    font-weight: bold;
+}
+
+.checkoutRight{
+    display: grid;
+    grid-template-columns: 10.625rem 10.625rem;
+    gap: 20px;
+    justify-content: center;
+}
+
+.deliveryBox{
+    margin: 0;
+    width: 10.625rem;
+    height: 7.3125rem;
+    border-radius: 0.625rem;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);   
+    transition: 300ms;
+    position: relative;
+}
+
+.deliveryBox:hover{
+    scale: 1.1;
+    filter: brightness(90%);
+}
+
+input[type="radio"] {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    scale: 1.5;
+}
+
+.checkoutBtn{
+    display: inline-flex;
+    padding: 0.625rem 4.375rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.375rem;
+    background: #FE8A3B;
+    box-shadow: 0px 4px 26px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+    width: 19.68rem;
+    height: 4.625rem;
+    margin: 0 auto;
+    font-size: 2.25rem;
+    color: white;
+    font-weight: bold;
+}
+
+.checkoutBtn:hover{
+    scale: 1.08;
+}
+
+/* responsiv nih bosssssss */
+
