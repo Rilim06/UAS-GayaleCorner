@@ -7,6 +7,10 @@
     text-align: center;
 }
 
+body{
+    margin-top: 8.5rem;
+}
+
 .cartTitle{
     font-size: 2.25rem;
     font-weight: bold;
@@ -85,14 +89,20 @@
     margin: auto;
 }
 
+.countBtn > img{
+    margin: auto;
+}
+
 .total{
-    display: flex;
+    display: flex;       
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .total > h3, .total > p{
     font-size: 1.75rem;
+    margin: 0;
 }
 
 button{
@@ -231,6 +241,7 @@ input[type="radio"] {
     font-size: 2.25rem;
     color: white;
     font-weight: bold;
+    margin-bottom: 5rem;
 }
 
 .checkoutBtn:hover{

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->integer('product_id');
             $table->integer('quantity');
-            $table->boolean('is_checked');
+            $table->boolean('is_checked')->default(false);
             $table->timestamps();
         });
     }

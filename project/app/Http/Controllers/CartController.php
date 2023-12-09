@@ -37,8 +37,7 @@ class CartController extends Controller
         $product = Product::findOrFail($productId);
 
         if ($quantity <= $product->stock) {
-            $product->stock -= $quantity;
-            $product->save();
+
 
             $existingCartItem = Cart::where('user_id', $user->id)->where('product_id', $productId)->first();
 
