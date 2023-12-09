@@ -7,10 +7,10 @@
         <a href="/gayale">Home</a>
         <select id="statusFilter">
             <option value="all">All</option>
-            <option value="0">Pending</option>
-            <option value="1">Packaging</option>
-            <option value="2">Delivering</option>
-            <option value="3">Arrived</option>
+            <option value="Pending">Pending</option>
+            <option value="Packaging">Packaging</option>
+            <option value="Delivering">Delivering</option>
+            <option value="Arrived">Arrived</option>
         </select>
         @foreach($groupedTransactions as $transactionID => $transactions)
         @php
@@ -31,7 +31,7 @@
         }
         @endphp
         <!-- Untuk per transactions -->
-        <div class="transactions">
+        <div class="transactions mb-10" id="{{ $status }}">
             <div class="bg-[#ebe0ce] shadow-6xl rounded-lg p-4 status-{{ $status }}" onclick='openPopup(
                 "{{ $transactionID }}",
                 "{{ $status }}",
@@ -64,8 +64,6 @@
         </div>
 
         <!-- Untuk per transactions -->
-        <br />
-        <br />
         @endforeach
     </div>
 
@@ -194,22 +192,22 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-    const statusFilter = document.getElementById('statusFilter');
-    const transactionDivs = document.querySelectorAll('.transactions');
+        const statusFilter = document.getElementById('statusFilter');
+        const transactionDivs = document.querySelectorAll('.transactions');
 
-    statusFilter.addEventListener('change', function () {
-        const selectedStatus = statusFilter.value;
+        statusFilter.addEventListener('change', function () {
+            const selectedStatus = statusFilter.value;
 
-        transactionDivs.forEach(function (transaction) {
-            const divStatus = transaction.querySelector('.bg-[#ebe0ce]').classList;
-            const transactionStatus = Array.from(divStatus).find(cls => cls.startsWith('status-'));
-            if (selectedStatus === 'all' || transactionStatus === `status-${selectedStatus}`) {
-                transaction.style.display = 'block';
-            } else {
-                transaction.style.display = 'none';
-            }
+            transactionDivs.forEach(function (transaction) {
+                const divStatus = transaction.id;
+                if (selectedStatus === 'all' || divStatus === selectedStatus) {
+                    transaction.style.visibility = 'visible';
+                    transaction.style.display = 'block';
+                } else {
+                    transaction.style.visibility = 'hidden';
+                    transaction.style.display = 'none';
+                }
+            });
         });
     });
-});
-
 </script>
