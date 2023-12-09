@@ -1,6 +1,7 @@
 <head>
     @vite('resources/css/app.css')
     @vite('resources/css/index.css')
+    @vite('resources/css/navbar.css')
     @vite('resources/js/index.js')
     <script src="../../js/index.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
@@ -88,7 +89,7 @@
                 </ul>
             </div>
         </nav>
-        
+
     </header>
 
 
