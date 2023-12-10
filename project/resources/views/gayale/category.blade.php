@@ -23,7 +23,7 @@
                     <ul class="nav__list ">
                         <li class="dropdown__item">
                             <!-- <div class="nav__link"> -->
-                                <div class="text-2xl flex items-center lg:pt-6 lg:text-xl py-1 px-5 hover:text-[#F98538]">Categories</div>
+                                <div class="text-2xl flex items-center lg:pt-6 lg:text-xl xl:pt-0 xl:h-full py-1 px-5 hover:text-[#F98538]">Categories</div>
                             <!-- </div> -->
                             <ul class="dropdown__menu">
                                 <li>
