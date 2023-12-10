@@ -70,7 +70,8 @@ class TransactionController extends Controller
             return redirect('/cart');
         } else {
             return view('gayale.transaction')->with([
-                'carts' => $carts
+                'carts' => $carts,
+                'user' => $user
             ]);
         }
     }

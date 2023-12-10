@@ -5,12 +5,13 @@
         @vite('resources/css/navbar.css')
         @vite('resources/js/index.js')
         <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script>
             function updateQuantity(itemId, action, stock) {
-                var quantityElement = document.getElementById('quantity_' + itemId);
-                var totalElement = document.getElementById('total_' + itemId);
-                var priceElement = document.getElementById('price_' + itemId);
                 
+                var quantityElement = document.getElementById('quantity_item' + itemId);
+                var totalElement = document.getElementById('total_item' + itemId);
+                var priceElement = document.getElementById('price_item' + itemId);
                 var currentQuantity = parseInt(quantityElement.textContent);
                 var priceText = priceElement.textContent.replace('Rp. ', '').replace(',-', '');
                 var price = parseFloat(priceText);
@@ -40,37 +41,42 @@
                 quantityElement.textContent = currentQuantity;
                 totalElement.textContent = 'Rp. ' + newTotal.toFixed(3).replace(/\d(?=(\d{3})+\.)/g, '$&,') + ',-';
                 // Update subtotal and total based on all items in the cart
-                updateCartTotal();
+                check(itemId);
+
             }
 
             // Function to update subtotal and total based on all items in the cart
-            function updateCartTotal() {
-                var subtotalElements = document.querySelectorAll('[id^="total_item"]');
-                var deliveryElement = document.getElementById('deliveryCost');
-                var subtotal = 0;
 
-                var deliveryCost = parseInt(deliveryElement.textContent.replace('Rp. ', '').replace(',-', ''));
-
-                // Calculate subtotal based on each item
-                subtotalElements.forEach(function (element) {
-                    var subtotalText = element.textContent.replace('Rp. ', '').replace(',-', '');
-                    subtotal += parseFloat(subtotalText);
-                });
-
-                var total = subtotal + deliveryCost;
-
-                // Update subtotal and total in the HTML
-                document.getElementById('subtotal').textContent = 'Rp. ' + subtotal.toFixed(3).replace(/\d(?=(\d{3})+\.)/g, '$&,') + ',-';
-                document.getElementById('total').textContent = 'Rp. ' + total.toFixed(3).replace(/\d(?=(\d{3})+\.)/g, '$&,') + ',-';
-            }
             
+            function check(itemId) {
+                var checkbox = document.getElementsByName("is_checked")[0];
+                var isChecked = checkbox.checked ? 1 : 0;
+
+                var quantityElement = document.getElementById('quantity_item' + itemId);
+                var x = parseInt(quantityElement.textContent);
+
+                $.ajax({
+                    type: "PATCH",
+                    url: "/cart/" + itemId, // Adjust the URL based on your route configuration
+                    // data: { is_checked: isChecked, _token: "{{ csrf_token() }}" },
+                    // data: { is_checked: isChecked,  quantity: currentQuantity ,  _token: "{{ csrf_token() }}"},
+                    data: { 
+                        is_checked: isChecked,  
+                        y: x, 
+                        _token: "{{ csrf_token() }}"
+                    },
+                });
+            }
+
+            updateQuantity();
+            window.onload = updateQuantity();
         </script>
     </head>
     <body>
         <header class="header bg-white text-black">
             <nav class="nav container z-20">
                 <div class="nav__data">
-                    <a href="#" class="nav__logo ml-8">
+                    <a href="/gayale" class="nav__logo ml-8">
                         <span class="text-[#282828] font-[800]">Gayale</span><span class="text-[#F98538] font-[800]">Corner</span>
                     </a>
                     <div class="nav__toggle mr-20 w-[40px]" id="nav-toggle">
@@ -154,6 +160,7 @@
             <div class="itemContainer">
             @foreach($carts as $cart)
                 <div class="item">
+                    <input type="checkbox" name="is_checked" value="0" onchange="check({{$cart->id}})" class="checkbox">
                     <div class="delete itemSection">
                         <form action="/cart/{{$cart->id}}" method="post">
                             @method('DELETE')
@@ -169,11 +176,11 @@
                             <p>{{$cart->product->name}}</p>
                             <h3 id="price_item{{$cart->id}}">Rp. {{$cart->product->price}},-</h3>
                             <div class="infoCount">
-                                <button class="countBtn" onclick="updateQuantity('item{{$cart->id}}', 'subtract', {{$cart->product->stock}})">
+                                <button class="countBtn" id="subtractBtn" onclick="updateQuantity('{{$cart->id}}', 'subtract', {{$cart->product->stock}}); check('{{$cart->id}}')">
                                     <img src="{{ asset('icons/subtract.svg') }}" alt="">
                                 </button>
-                                <h3 id="quantity_item{{$cart->id}}">{{$cart->quantity}}</h3>
-                                <button class="countBtn" onclick="updateQuantity('item{{$cart->id}}', 'add', {{$cart->product->stock}})">
+                                <h3 id="quantity_item{{$cart->id}}" >{{$cart->quantity}}</h3>
+                                <button class="countBtn" id="addBtn" onclick="updateQuantity('{{$cart->id}}', 'add', {{$cart->product->stock}}); check('{{$cart->id}}')">
                                     <img src="{{ asset('icons/add.svg') }}" alt="">
                                 </button>
                             </div>
@@ -181,75 +188,16 @@
                     </div>
                     <div class="total itemSection">
                         <p>Total: </p>
-                        <h3 id="total_item{{$cart->id}}"></h3>
+                        <h3 id="total_item{{$cart->id}}">Rp. {{$cart->quantity * $cart->product->price}},-</h3>
                     </div>
                 </div>
                 @endforeach
-            
-                <div class="address"> 
-                    <img src="{{ asset('icons/addressbox.svg') }}" alt="">
-                    <div class="addressContent">
-                        <div class="addressTop">
-                            <p>PaskahIcad</p>
-                            <p>+62 012-2192-0391</p>
-                        </div>
-                        <div class="addressBot">
-                            <h3>JL.Semarecon serpong damai sektor 2 no 7 SERPONG, TANGGERANG SELATAN, BANTEN, ID 15133</h3>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="checkout">
-                    <div class="checkoutContent">
-                        <div class="checkoutLeft">
-                                <div class="checkoutPrice sub">
-                                    <p>Subtotal</p>
-                                    <p id="subtotal"></p>
-                                </div>
-                                <div class="checkoutPrice">
-                                    <p>Ongkos Kirim</p>
-                                    <p id="deliveryCost">Rp. 9.000,-</p>
-                                </div>
-                                <div class="checkoutPrice checkoutTotal">
-                                    <p>Total</p>
-                                    <p id="total"></p>
-                                </div>
-                        </div>
-                        <img src="{{ asset('icons/line.svg') }}" alt="">
-                        <div class="checkoutRight">
-                            <div class="deliveryBox">
-                                <input type="radio" name="deliveryOpt" id="jne" value="jne">
-                                <label for="jne" class="deliBtn">
-                                    <img src="{{asset('icons/jne.svg')}}" alt="">
-                                </label>
-                            </div>
-                            <div class="deliveryBox">
-                                <input type="radio" name="deliveryOpt" id="jnt" value="jnt">
-                                <label for="jnt" class="deliBtn">
-                                    <img src="{{asset('icons/jnt.svg')}}" alt="">
-                                </label>
-                            </div>
-                            <div class="deliveryBox">
-                                <input type="radio" name="deliveryOpt" id="scpt" value="scpt">
-                                <label for="scpt" class="deliBtn">
-                                    <img src="{{asset('icons/scpt.svg')}}" alt="">
-                                </label>
-                            </div>
-                            <div class="deliveryBox">
-                                <input type="radio" name="deliveryOpt" id="whn" value="whn">
-                                <label for="whn" class="deliBtn">
-                                    <img src="{{asset('icons/whn.svg')}}" alt="">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="checkoutBtn">Checkout</button>
+                <a href="/checkout">
+                    <button class="checkoutBtn">Checkout</button>
+                </a>
             </div>
         
-            <a href="/gayale">Home</a>
-            <a href="/checkout">Checkout</a>
         </div>
         <footer class="footer flex justify-center items-center px-auto">
             <div class="grid grid-cols-1 lg:grid-cols-3 flex justify-between pl-0 md:pl-8 items-center">

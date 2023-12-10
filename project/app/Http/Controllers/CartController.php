@@ -66,6 +66,11 @@ class CartController extends Controller
         $user = Auth::user();
         $carts = Cart::where('user_id', $user->id)->with('product')->get();
 
+        foreach($carts as $cart){
+            $cart->is_checked = 0;
+            $cart->save();
+        }
+
         return view('gayale.cart')->with([
             'carts' => $carts
         ]);
@@ -85,8 +90,13 @@ class CartController extends Controller
     public function update(Request $request, string $id)
     {
         $cartItem = Cart::findOrFail($id);
-        $cartItem->is_checked = $request->has('is_checked') ? true : false;
+        $cartItem->is_checked = $request->input('is_checked');
+        $cartItem->quantity = $request->input('y');
         $cartItem->save();
+
+        if ($request->ajax()) {
+            return response()->json(['success' => true, 'message' => 'Cart item updated successfully.']);
+        }
 
         return redirect('/cart')->with('success', 'Cart item updated successfully.');
     }
@@ -109,4 +119,5 @@ class CartController extends Controller
 
         return redirect('/cart')->with('success', 'Item removed from cart.');
     }
+
 }

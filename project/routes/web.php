@@ -40,6 +40,12 @@ Route::resource('gayale', GayaleController::class)->middleware(['auth']);
 Route::resource('cart', CartController::class)->middleware(['auth']);
 Route::resource('transaction', TransactionController::class)->middleware(['auth']);
 
+Route::post('/test', function(Request $request, string $id){
+        $cartItem = Cart::findOrFail($id);
+        $cartItem->quantity = $request->input('q');
+        $cartItem->save();
+});
+
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 Route::get('/checkout', [TransactionController::class, 'show'])->name('transaction.show');
 
