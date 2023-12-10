@@ -107,14 +107,14 @@
                     <div class="itemSection">
                         <div class="infoContent">
                             <p>{{$cart->product->name}}</p>
-                            <h3 id="price_item{{$cart->id}}">Price: Rp. {{$cart->product->price}},-</h3>
+                            <h3 id="price_item{{$cart->id}}">Price: Rp. {{ number_format($cart->product->price, 0, ',', '.') }},-</h3>
                             <div class="infoCount">
                                 <h3 id="quantity_item{{$cart->id}}">Qty: {{$cart->quantity}}</h3>
                             </div>
                         </div>
                     </div>
                     <div class="total itemSection">
-                        <h3 id="total_item{{$cart->id}}">Rp. {{$cart->quantity * $cart->product->price}},-</h3>
+                        <h3 id="total_item{{$cart->id}}">Rp. {{ number_format($cart->quantity * $cart->product->price, 0, ',', '.') }},-</h3>
                     </div>
                 </div>
                 @endforeach
@@ -140,9 +140,9 @@
                         <div class="checkoutLeft">
                                 <div class="checkoutPrice sub">
                                     <p>Subtotal</p>
-                                    <p id="subtotal">Rp. {{ $carts->sum(function ($cart) {
-                                                        return $cart->quantity * $cart->product->price;}) }},-
-                                    </p>
+                                    <p id="subtotal">Rp. {{ number_format($carts->sum(function ($cart) {
+                                        return $cart->quantity * $cart->product->price;
+                                        }), 0, ',', '.') }},-</p>
                                 </div>
                                 <div class="checkoutPrice">
                                     <p>Ongkos Kirim</p>
@@ -150,7 +150,7 @@
                                 </div>
                                 <div class="checkoutPrice checkoutTotal">
                                     <p>Total</p>
-                                    <p id="total">Rp. {{ $total }},-</p>
+                                    <p id="total">Rp. {{ number_format($total, 0, ',', '.') }},-</p>
                                 </div>
                         </div>
                         <img src="{{ asset('icons/line.svg') }}" alt="">

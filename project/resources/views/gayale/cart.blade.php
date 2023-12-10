@@ -13,7 +13,7 @@
                 var totalElement = document.getElementById('total_item' + itemId);
                 var priceElement = document.getElementById('price_item' + itemId);
                 var currentQuantity = parseInt(quantityElement.textContent);
-                var priceText = priceElement.textContent.replace('Rp. ', '').replace(',-', '');
+                var priceText = priceElement.textContent.replace('Rp. ', '').replace(',-', '').replace('.','');
                 var price = parseFloat(priceText);
                 
                 console.log('currentQuantity:', currentQuantity);
@@ -39,7 +39,7 @@
                 var newTotal = currentQuantity * price;
 
                 quantityElement.textContent = currentQuantity;
-                totalElement.textContent = 'Rp. ' + newTotal.toFixed(3).replace(/\d(?=(\d{3})+\.)/g, '$&,') + ',-';
+                totalElement.textContent = 'Rp. ' + newTotal.toLocaleString('id-ID', { maximumFractionDigits: 0 }) + ',-';
                 // Update subtotal and total based on all items in the cart
                 check(itemId);
 
@@ -48,18 +48,15 @@
             // Function to update subtotal and total based on all items in the cart
 
             
-            function check(itemId) {
-                var checkbox = document.getElementsByName("is_checked")[0];
+            function check(checkbox, itemId) {
                 var isChecked = checkbox.checked ? 1 : 0;
-
+                
                 var quantityElement = document.getElementById('quantity_item' + itemId);
                 var x = parseInt(quantityElement.textContent);
-
+                
                 $.ajax({
                     type: "PATCH",
-                    url: "/cart/" + itemId, // Adjust the URL based on your route configuration
-                    // data: { is_checked: isChecked, _token: "{{ csrf_token() }}" },
-                    // data: { is_checked: isChecked,  quantity: currentQuantity ,  _token: "{{ csrf_token() }}"},
+                    url: "/cart/" + itemId,
                     data: { 
                         is_checked: isChecked,  
                         y: x, 
@@ -67,6 +64,7 @@
                     },
                 });
             }
+
 
             updateQuantity();
             window.onload = updateQuantity();
@@ -160,7 +158,7 @@
             <div class="itemContainer">
             @foreach($carts as $cart)
                 <div class="item">
-                    <input type="checkbox" name="is_checked" value="0" onchange="check({{$cart->id}})" class="checkbox">
+                    <input type="checkbox" name="is_checked" value="0" onchange="check(this, '{{$cart->id}}')" class="checkbox">
                     <div class="delete itemSection">
                         <form action="/cart/{{$cart->id}}" method="post">
                             @method('DELETE')
@@ -174,7 +172,7 @@
                     <div class="info itemSection">
                         <div class="infoContent">
                             <p>{{$cart->product->name}}</p>
-                            <h3 id="price_item{{$cart->id}}">Rp. {{$cart->product->price}},-</h3>
+                            <h3 id="price_item{{$cart->id}}">Rp. {{ number_format($cart->product->price, 0, ',', '.') }},-</h3>
                             <div class="infoCount">
                                 <button class="countBtn" id="subtractBtn" onclick="updateQuantity('{{$cart->id}}', 'subtract', {{$cart->product->stock}}); check('{{$cart->id}}')">
                                     <img src="{{ asset('icons/subtract.svg') }}" alt="">
@@ -188,7 +186,7 @@
                     </div>
                     <div class="total itemSection">
                         <p>Total: </p>
-                        <h3 id="total_item{{$cart->id}}">Rp. {{$cart->quantity * $cart->product->price}},-</h3>
+                        <h3 id="total_item{{$cart->id}}">Rp. {{ number_format($cart->quantity * $cart->product->price, 0, ',', '.') }},-</h3>
                     </div>
                 </div>
                 @endforeach
