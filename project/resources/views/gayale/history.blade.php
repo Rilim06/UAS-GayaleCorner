@@ -5,6 +5,7 @@
     @vite('resources/js/index.js')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('css/history.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
 </head>
@@ -112,44 +113,49 @@
         </nav>
     </header>
     <div class='all' id='blur'>
-        <a href="/gayale">Home</a>
-        @foreach($groupedTransactions as $transactionID => $transactions)
-        @php
-        $status = 'Unknown';
+        <div class="cardContainer">
+            @foreach($groupedTransactions as $transactionID => $transactions)
+            @php
+            $status = 'Unknown';
+    
+            if ($transactions->isNotEmpty()) {
+            $firstTransaction = $transactions->first();
+    
+            if ($firstTransaction->status == 0) {
+            $status = 'Pending';
+            } elseif ($firstTransaction->status == 1) {
+            $status = 'Packaging';
+            } elseif ($firstTransaction->status == 2) {
+            $status = 'Delivering';
+            } elseif ($firstTransaction->status == 3) {
+            $status = 'Arrived';
+            }
+            }
+            @endphp
+            <!-- Untuk per transactions -->
+            <div class="card" onclick='openPopup(
+                    "{{ $transactionID }}",
+                    "{{ $status }}",
+                    @json($transactions->toArray())
+                )'>
+                <h2>Transaction ID: {{ $transactionID }}</h2>
+                <p>Status: {{ $status }}</p>
+                @foreach ($transactions as $transaction)
+                <p>{{ $transaction->product->name }}&nbsp;&nbsp;&nbsp;x{{ $transaction->quantity }}</p>
+                @endforeach
+            </div>
 
-        if ($transactions->isNotEmpty()) {
-        $firstTransaction = $transactions->first();
-
-        if ($firstTransaction->status == 0) {
-        $status = 'Pending';
-        } elseif ($firstTransaction->status == 1) {
-        $status = 'Packaging';
-        } elseif ($firstTransaction->status == 2) {
-        $status = 'Delivering';
-        } elseif ($firstTransaction->status == 3) {
-        $status = 'Arrived';
-        }
-        }
-        @endphp
-        <!-- Untuk per transactions -->
-        <div class="bg-[#ebe0ce] shadow-6xl rounded-lg p-4" onclick='openPopup(
-                "{{ $transactionID }}",
-                "{{ $status }}",
-                @json($transactions->toArray())
-            )'>
-            <h2>Transaction ID: {{ $transactionID }}</h2>
-            <p>Status: {{ $status }}</p>
-            @foreach ($transactions as $transaction)
-            <p>{{ $transaction->product->name }}&nbsp;&nbsp;&nbsp;x{{ $transaction->quantity }}</p>
+            <div>
+                
+            </div>
+    
+            <!-- Untuk per transactions -->
+            <br />
+            <br />
             @endforeach
         </div>
-
-        <!-- Untuk per transactions -->
-        <br />
-        <br />
-        @endforeach
     </div>
-    <footer class="footer absolute bottom-0 w-full mt-8">
+    <footer class="footer bottom-0 w-full mt-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 pl-0 md:pl-8 items-center">
             <div class="footer-col px-10">
                 <h1 class="text-6xl lg:text-4xl xl:text-3xl"><span class="text-white font-[800]">Gayale</span><span class="text-[#F98538] font-[800]">Corner</span></h1>
@@ -177,14 +183,37 @@
     <!-- Popup -->
     <div id='popup'>
         <h3 id="transactionId">Transaction ID: </h3>
-        <p>Status: <span id="transactionStatus"></span></p>
-        <p id="transactionAddress"></p>
-        <div id="transactionDetails"></div>
-        <p id="price"></p>
-        <p>Ongkir: 10000</p>
-        <p id="tax"></p>
-        <p id="total"></p>
-        <p id="transactionDate"></p>
+        <div class="popupLine">
+            <p>Status: </p><span id="transactionStatus"></span>
+        </div>
+        <div class="popupLine">
+            <p>Address: </p><p id="transactionAddress"></p>
+        </div>
+        <div class="popupLine">
+            <div id="transactionDetails"></div>
+        </div>
+        <div class="popupLine">
+            <p>Subtotal:</p>
+            <p id="price"></p>
+        </div>
+        <div class="popupLine">
+            <p>Ongkir:</p>
+            <p>9000</p>
+        </div>
+        <div class="popupLine">
+            <p>Total:</p><p id="total"></p>
+        </div>
+        <div class="popupLine">
+            <p>Ordered at: </p>
+            <p id="transactionDate"></p>
+        </div>
+        
+        
+        
+        
+        <!-- <p id="tax"></p> -->
+        
+        
         <a class="closing" onclick='closePopup()'>
             <button class="closeBtn">
                 <span class="X"></span>
@@ -212,11 +241,11 @@
         idElement.textContent = `Transaction ID: ${transactionID}`;
         statusElement.textContent = status;
         var address = details[0].address;
-        addressElement.textContent = `Address: ${address}`;
+        addressElement.textContent = `${address}`;
         var rawDate = details[0].created_at;
         var date = new Date(rawDate);
         var formattedDate = date.toLocaleString();
-        dateElement.textContent = `Ordered at: ${formattedDate}`;
+        dateElement.textContent = `${formattedDate}`;
         detailsElement.innerHTML = '';
 
         var allPrice = 0;
@@ -234,9 +263,9 @@
         var tax = allPrice * 0.1;
         var total = allPrice + tax + 10000;
 
-        priceElement.textContent = `Subtotal: ${allPrice}`;
-        taxElement.textContent = `Tax (10%): ${tax}`;
-        totalElement.textContent = `Total: ${total}`;
+        priceElement.textContent = `${allPrice}`;
+        // taxElement.textContent = `Tax (10%): ${tax}`;
+        totalElement.textContent = `${total}`;
 
         var isPopupActive = popup.classList.contains('active');
 
