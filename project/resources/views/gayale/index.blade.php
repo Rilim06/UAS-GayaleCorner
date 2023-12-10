@@ -105,7 +105,78 @@
             </div>
         </div>
     </section>
-    <section class="h-screen items-center ">
+    <section class="h-3/4 lg:h-screen">
+        <div class="text-center">
+            <h1 class="text-5xl"><span class="text-[#282828] font-[800]">Why Choose Gayale</span><span class="text-[#F98538] font-[800]">Corner?</span></h1>
+        </div>
+        <div class="flex flex-col h-full justify-around lg:grid lg:grid-cols-3 lg:h-min pt-20">
+            <!-- Car Section -->
+            <div class="md:w-full">
+                <div class="items-center">
+                    <div class="car-wrapper_inner">
+                        <div class="car_outter">
+                            <div class="car">
+                                <div class="bodycar">
+                                    <div class="isicar"></div>
+                                </div>
+                                <div class="decos">
+                                    <div class="line-bot"></div>
+                                    <div class="door">
+                                        <div class="handle"></div>
+                                        <div class="bottom"></div>
+                                    </div>
+                                    <div class="window"></div>
+                                    <div class="light"></div>
+                                    <div class="light-front"></div>
+                                    <div class="antenna"></div>
+
+                                </div>
+                                <div class="ban">
+                                    <div class="wheel"></div>
+                                    <div class="wheel"></div>
+                                </div>
+                                <div class="windy">
+                                    <div class="per per1"></div>
+                                    <div class="per per2"></div>
+                                    <div class="per per3"></div>
+                                    <div class="per per4"></div>
+                                    <div class="per per5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class=" flex justify-center pt-10 font-bold text-2xl  items-center">Flexible Delivery</h1>
+                </div>
+            </div>
+
+            <div class="md:w-full  mt-8 lg:mt-0">
+                <div class="flex flex-col lg:h-full items-center justify-between">
+                    <div class="milk-loader">
+                        <div class="glass">
+                            <div class="milk">
+                                <h1 class="flex justify-center items-center text-center text-white text-3xl font-bold">%
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="flex justify-center pt-10 font-bold text-2xl items-center">Best Price</h1>
+                </div>
+            </div>
+
+            <div class="md:w-full mt-8 lg:mt-0">
+                <div class="flex flex-col lg:h-full items-center justify-between text-center">
+                    <div class="setiapjam flex justify-center lg:mt-[-4rem]">
+                        <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 187.3 93.7" height="300px" width="400px">
+                            <path d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 				c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" fill="none" id="outline" stroke="#F98538"></path>
+                            <path d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 				c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="4" stroke="#4E4FEB" fill="none" opacity="0.05" id="outline-bg"></path>
+                        </svg>
+                    </div>
+                    <h1 class=" text-center font-bold text-2xl">Here For You 24/7</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="h-screen items-center ">
         <div class="text-center">
             <h1 class="text-5xl"><span class="text-[#282828] font-[800]">Why Choose Gayale</span><span class="text-[#F98538] font-[800]">Corner?</span></h1>
         </div>
@@ -165,10 +236,11 @@
                 <h1 class=" text-center font-bold text-2xl">Here For You 24/7</h1>
             </div>
         </div>
-    </section>
-    <section class=" md:h-[90vh] lg:h-screen items-center pt-0 md:pt-40 lg:pt-0 ">
+    </section> -->
+    <section class="lg:h-screen items-center pt-0 md:pt-40 lg:pt-0 ">
         <div class="text-center">
-            <h1 class="text-5xl"><span class="text-[#282828] font-[800]">Our </span><span class="text-[#F98538] font-[800]">Best </span><span class="text-[#282828] font-[800]">Product</span></h1>
+            <h1 class="text-5xl"><span class="text-[#282828] font-[800]">Our </span><span class="text-[#F98538] font-[800]">Best </span><span class="text-[#282828] font-[800]">Product</span>
+            </h1>
         </div>
         <div class="swiper topSwiper mt-12 w-full aspect-square rounded-xl lg:aspect-auto h-[32rem] md:h-[40rem] lg:h-[30rem] lg:mt-8 xl:h-[35rem] 2xl:h-[40rem]">
             <div class="swiper-wrapper">
@@ -183,35 +255,32 @@
             <div class="swiper-pagination"></div>
         </div>
     </section>
-    <div class="wavekedua lg:h-[12vh] xl:h-[15vh] mt-12">
+    <div class="wavekedua lg:h-[12vh] xl:h-[15vh] mt-10">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-[#f0f5ff]"></path>
         </svg>
     </div>
-    <footer class="footer flex justify-center items-center px-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-3 flex justify-between pl-0 md:pl-8 items-center">
+    <footer class="footer">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 pl-0 md:pl-8 items-center">
             <div class="footer-col px-10">
-                <h1 class="text-6xl md:text-4xl"><span class="text-white font-[800]">Gayale</span><span class="text-[#F98538] font-[800]">Corner</span></h1>
+                <h1 class="text-6xl lg:text-4xl xl:text-3xl"><span class="text-white font-[800]">Gayale</span><span class="text-[#F98538] font-[800]">Corner</span></h1>
                 <br>
-                <h5 class="text-lg md:text-xl text-white text-justify">GayaleCorner is an online store dealing with all product
-                    GayaleCorner provide cheap, high quality, products to
-                    customers</h5>
-
+                <h5 class="text-3xl lg:text-xl text-white">Many things. All in one
+                </h5>
+            </div>
+            <div class="footer-col px-10 ml-0 pt-16 lg:pt-0">
+                <h4 class="text-5xl lg:text-3xl">Connect with Us</h4>
+                <!-- <h5 class="text-white text-lg md:text-xl text-justify">support@GayaleCorner.com</h5> -->
+                <a href="https://wa.me/6287717955384" target="_blank">
+                    <h5 class="text-white text-3xl lg:text-xl">0877-1795-5384</h5>
+                </a>
+                <h5 class="text-white text-3xl lg:text-xl mt-2">Bintaro, Tangerang Selatan</h5>
 
             </div>
-            <div class="footer-col px-10 ml-0 pt-16 lg:pt-0 lg:ml-10">
-                <h4 class="text-6xl md:text-2xl">Connect Us</h4>
-                <h5 class="text-white text-lg md:text-xl text-justify">support@GayaleCorner.com</h5>
-                <h5 class="text-white text-lg md:text-xl text-justify">021 - 123 -456</h5>
-                <h5 class="text-white text-lg md:text-xl  text-justify">Summarecon, South Tangerang</h5>
-
-            </div>
-            <div class="footer-col px-10 pt-16 lg:pt-0  ml-0 lg:ml-10  ">
-                <h4 class="text-6xl md:text-2xl">Follow Us</h4>
-                <div class="social-links text-lg md:text-xl ">
-                    <a href="#"><i class="fab fa-instagram"></i>&nbsp;&nbsp;&nbsp;@GayaleCorner.com</a>
-                    <br>
-                    <a href="#"><i class="fas fa-envelope"></i>&nbsp;&nbsp;&nbsp;@GayaleCorner.com</a>
+            <div class="footer-col px-10 pt-16 lg:pt-0  ml-0  ">
+                <h4 class="text-5xl lg:text-3xl">Follow Us</h4>
+                <div class="social-links text-3xl lg:text-xl">
+                    <a href="https://www.instagram.com/gayale_corner/" target="_blank"><i class="fab fa-instagram"></i>&nbsp;&nbsp;&nbsp;@gayale_corner</a>
                 </div>
             </div>
         </div>

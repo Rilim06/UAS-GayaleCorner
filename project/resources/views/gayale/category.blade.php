@@ -140,15 +140,15 @@
             </div>
         </div>
         <footer class="footer absolute bottom-0 lg:static w-full mt-8 z-0">
-            <div class="grid grid-cols-1 lg:grid-cols-3 pl-0 md:pl-8 items-center">
+        <div class="grid grid-cols-1 pl-0 md:pl-8 lg:grid-cols-3 lg:gap-8">
                 <div class="footer-col px-10">
                     <h1 class="text-6xl lg:text-4xl xl:text-3xl"><span class="text-white font-[800]">Gayale</span><span class="text-[#F98538] font-[800]">Corner</span></h1>
                     <br>
                     <h5 class="text-3xl lg:text-xl text-white">Many things. All in one
                     </h5>
                 </div>
-                <div class="footer-col px-10 ml-0 pt-16 lg:pt-0 lg:ml-10">
-                    <h4 class="text-5xl lg:text-3xl">Connect Us</h4>
+                <div class="footer-col px-10 ml-0 pt-16 lg:pt-0">
+                    <h4 class="text-5xl lg:text-3xl">Connect with Us</h4>
                     <!-- <h5 class="text-white text-lg md:text-xl text-justify">support@GayaleCorner.com</h5> -->
                     <a href="https://wa.me/6287717955384" target="_blank">
                         <h5 class="text-white text-3xl lg:text-xl">0877-1795-5384</h5>
@@ -156,7 +156,7 @@
                     <h5 class="text-white text-3xl lg:text-xl mt-2">Bintaro, Tangerang Selatan</h5>
 
                 </div>
-                <div class="footer-col px-10 pt-16 lg:pt-0  ml-0 lg:ml-10  ">
+                <div class="footer-col px-10 pt-16 lg:pt-0  ml-0  ">
                     <h4 class="text-5xl lg:text-3xl">Follow Us</h4>
                     <div class="social-links text-3xl lg:text-xl">
                         <a href="https://www.instagram.com/gayale_corner/" target="_blank"><i class="fab fa-instagram"></i>&nbsp;&nbsp;&nbsp;@gayale_corner</a>
