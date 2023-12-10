@@ -460,3 +460,36 @@ a {
         transition: top .3s;
     }
 }
+
+/* Footer */
+.rowi {
+    display: flex;
+    /* flex-wrap: wrap; */
+    max-width: 100%;
+}
+
+.footer {
+    background-color: #08243A;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.footer-col h4 {
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 28px;
+    font-weight: 800;
+    position: relative;
+}
+
+.footer-col .social-links a {
+    
+   /* margin-bottom: 10px; */
+    text-align: center;
+    line-height: 40px;
+    color: #ffffff;
+}
+
+.wavekedua{
+    background-color: #08243A;
+}
