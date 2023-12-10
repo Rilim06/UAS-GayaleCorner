@@ -155,7 +155,7 @@
         <div class="p-4 h-full">
             <div class="w-[85%] mx-auto">
                 <div class="flex justify-between items-center">
-                    <select id="statusFilter">
+                    <select class="rounded-lg" id="statusFilter">
                         <option value="all">All</option>
                         <option value="Pending">Pending</option>
                         <option value="Packaging">Packaging</option>

@@ -195,7 +195,7 @@
                     </div>
                 </div>
             </div> -->
-            <footer class="footer mt-8">
+            <footer class="footer absolute bottom-0 w-full mt-8">
                 <div class="grid grid-cols-1 lg:grid-cols-3 pl-0 md:pl-8 items-center">
                     <div class="footer-col px-10">
                         <h1 class="text-6xl lg:text-4xl xl:text-3xl"><span class="text-white font-[800]">Gayale</span><span class="text-[#F98538] font-[800]">Corner</span></h1>
@@ -206,7 +206,9 @@
                     <div class="footer-col px-10 ml-0 pt-16 lg:pt-0 lg:ml-10">
                         <h4 class="text-5xl lg:text-3xl">Connect Us</h4>
                         <!-- <h5 class="text-white text-lg md:text-xl text-justify">support@GayaleCorner.com</h5> -->
-                        <a href="https://wa.me/6287717955384" target="_blank"><h5 class="text-white text-3xl lg:text-xl">0877-1795-5384</h5></a>
+                        <a href="https://wa.me/6287717955384" target="_blank">
+                            <h5 class="text-white text-3xl lg:text-xl">0877-1795-5384</h5>
+                        </a>
                         <h5 class="text-white text-3xl lg:text-xl mt-2">Bintaro, Tangerang Selatan</h5>
 
                     </div>

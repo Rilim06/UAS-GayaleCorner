@@ -116,16 +116,16 @@
             <a href="beverages">Beverages</a>
             <a href="accessories">Accessories</a>
             <a href="others">Others</a> -->
-            <div class="w-[85%] mx-auto">
+            <div class="w-[85%] ms-24">
                 <div class="flex justify-between items-center">
                     <a href="gayale/create" class="">
-                        <button class="bg-[#08243A] hover:bg-[#0d3b5f] text-white text-center text-3xl py-4 px-8 mt-10 rounded-full lg:text-sm lg:px-5 lg:py-3 xl:text-md 2xl:text-lg">
+                        <button class="bg-[#08243A] hover:bg-[#0d3b5f] text-white text-center text-3xl py-4 px-8 rounded-full lg:text-sm lg:px-5 lg:py-3 xl:text-md 2xl:text-lg">
                             Tambah Item
                         </button>
                     </a>
                     <form method="post" action="{{route('logout')}}" class="pt-4">
                         @csrf
-                        <button class="bg-[#F98538] hover:bg-[#ff9854] focus:bg-[#d16f2e] text-white text-center text-3xl py-4 px-8 mt-4 rounded-full lg:text-sm lg:px-5 lg:py-3 xl:text-md 2xl:text-lg" type='submit'>Logout</button>
+                        <button class="bg-[#F98538] hover:bg-[#ff9854] focus:bg-[#d16f2e] text-white text-center text-3xl py-4 px-8 rounded-full lg:text-sm lg:px-5 lg:py-3 xl:text-md 2xl:text-lg" type='submit'>Logout</button>
                     </form>
                 </div>
                 <div class="menu-container mt-8 lg:mt-4">
