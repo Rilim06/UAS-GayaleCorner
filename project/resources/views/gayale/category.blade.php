@@ -129,7 +129,7 @@
                                         "{{$product->price}}",
                                         "{{asset("storage/" . $product->photo)}}"
                                     )'>
-                        <img class="photo w-full aspect-square rounded-t-lg" src="{{asset('storage/' . $product->photo)}}" />
+                        <img class="photo w-full aspect-square rounded-t-lg object-cover" src="{{asset('storage/' . $product->photo)}}" />
                         <div class="text-4xl px-4 py-2 sm:text-3xl lg:text-2xl">
                             <h1>{{$product->name}}</h1>
                             <div class="font-bold mt-2 lg:mt-0">Rp. {{$product->price}}</div>
@@ -171,7 +171,7 @@
             <div class="flex flex-col justify-between">
                 <div>
                     <div class="flex flex-col gap-3 mt-8 sm:gap-1 sm:px-20 lg:mt-0 lg:px-0">
-                        <h2 id="productName" class="font-bold text-7xl sm:text-5xl lg:text-3xl xl:text-4xl"></h2>
+                        <h2 id="productName" class="font-bold text-7xl sm:text-5xl lg:text-3xl lg:w-5/6 xl:text-4xl"></h2>
                         <p id="productCategory" class="text-slate-500 text-5xl sm:text-4xl lg:text-2xl xl:text-3xl"></p>
                         <p id="productPrice" class="font-bold text-5xl sm:text-4xl lg:text-2xl xl:text-3xl"></p>
                     </div>

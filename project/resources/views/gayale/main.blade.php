@@ -156,7 +156,7 @@
             <div class="swiper btmSwiper w-[90%] h-min mt-16 sm:mt-8 lg:mt-8">
                 <div class="swiper-wrapper">
                     @foreach ($products as $product)
-                    <div class="swiper-slide aspect-square lg:w-36 rounded-xl hover:scale-110 ease-in-out duration-200" onclick='openPopup(
+                    <div class="swiper-slide aspect-square p-1 lg:w-36 rounded-xl hover:scale-105 ease-in-out duration-200" onclick='openPopup(
                                         "{{$product->id}}",
                                         "{{$product->name}}",
                                         "{{$product->category}}",
@@ -224,11 +224,11 @@
     <!-- popup -->
     <div class="w-[90%] pt-20 pb-8 px-8 sm:w-[75%] sm:pt-16 sm:px-8 lg:py-8 lg:ps-8 lg:pe-0 rounded-3xl" id='popup'>
         <div class=" lg:grid lg:grid-cols-2 lg:gap-8">
-            <img class="photo w-full sm:w-3/4 lg:w-full sm:mx-auto aspect-square rounded-xl" src="" alt="Product Image" />
+            <img class="photo w-full sm:w-3/4 lg:w-full sm:mx-auto aspect-square rounded-xl object-cover" src="" alt="Product Image" />
             <div class="flex flex-col justify-between">
                 <div>
                     <div class="flex flex-col gap-3 mt-8 sm:gap-1 sm:px-20 lg:mt-0 lg:px-0">
-                        <h2 id="productName" class="font-bold text-7xl sm:text-5xl lg:text-3xl xl:text-4xl"></h2>
+                        <h2 id="productName" class="font-bold text-7xl sm:text-5xl lg:text-3xl lg:w-5/6 xl:text-4xl"></h2>
                         <p id="productCategory" class="text-slate-500 text-5xl sm:text-4xl lg:text-2xl xl:text-3xl"></p>
                         <p id="productPrice" class="font-bold text-5xl sm:text-4xl lg:text-2xl xl:text-3xl"></p>
                     </div>

@@ -55,33 +55,43 @@
 /* Category */
 
 .category-1 {
-    background-image: url(./photos/fashion.png);
+    background-image: url(./photos/baju-rayon-lengan-pendek.jpg);
     background-position: center;
     background-size: cover;
+    background-color: rgba(0,0,0,.5);
+    background-blend-mode: darken;
 }
 
 .category-2 {
-    background-image: url(./photos/foods.png);
+    background-image: url(./photos/batagor.jpg);
     background-position: center;
     background-size: cover;
+    background-color: rgba(0,0,0,.5);
+    background-blend-mode: darken;
 }
 
 .category-3 {
-    background-image: url(./photos/drinks.png);
+    background-image: url(./photos/jus-terong-belanda.jpg);
     background-position: center;
     background-size: cover;
+    background-color: rgba(0,0,0,.5);
+    background-blend-mode: darken;
 }
 
 .category-4 {
-    background-image: url(./photos/fashion.png);
+    background-image: url(./photos/tissue.jpg);
     background-position: center;
     background-size: cover;
+    background-color: rgba(0,0,0,.5);
+    background-blend-mode: darken;
 }
 
 .category-5 {
-    background-image: url(./photos/others.png);
+    background-image: url(./photos/tissue.jpg);
     background-position: center;
     background-size: cover;
+    background-color: rgba(0,0,0,.5);
+    background-blend-mode: darken;
 }
 
 /* Swiper */
