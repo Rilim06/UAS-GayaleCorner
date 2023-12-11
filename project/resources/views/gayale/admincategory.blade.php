@@ -118,7 +118,7 @@
             <a href="others">Others</a> -->
             <div class="w-[85%] ms-24">
                 <div class="flex justify-between items-center">
-                    <a href="gayale/create" class="">
+                    <a href="/gayale/create" class="">
                         <button class="bg-[#08243A] hover:bg-[#0d3b5f] text-white text-center text-3xl py-4 px-8 rounded-full lg:text-sm lg:px-5 lg:py-3 xl:text-md 2xl:text-lg">
                             Tambah Item
                         </button>

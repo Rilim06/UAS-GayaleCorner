@@ -167,7 +167,7 @@
                         </form>
                     </div>
                     <div class="pic itemSection">
-                        <img src="{{$cart->product->photo}}" alt="">
+                        <img src="{{asset('storage/' . $cart->product->photo)}}" alt="">
                     </div>
                     <div class="info itemSection">
                         <div class="infoContent">

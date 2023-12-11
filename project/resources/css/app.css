@@ -61,7 +61,7 @@
     top: 0;
     right: 0;
     z-index: 99999999;
-    width: fit-content;
+    width: 2rem;
 }
 
 .closeBtn {
@@ -70,6 +70,7 @@
     height: 4em;
     border: none;
     border-top-right-radius: 1rem;
+    margin-right: 1.25rem;
 }
 
 .X {

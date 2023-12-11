@@ -4,6 +4,9 @@
     @vite('resources/css/navbar.css')
     @vite('resources/js/index.js')
     <script src="../../js/index.js"></script>
+    <link rel="stylesheet" href="resources/css/index.css">
+    <link rel="stylesheet" href="resources/css/navbar.css">
+    <link rel="stylesheet" href="resources/js/index.js">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">

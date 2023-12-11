@@ -31,22 +31,22 @@
                         </div>
                         <ul class="dropdown__menu">
                             <li>
-                                <a href="clothes" class="dropdown__link hover:text-[#F98538]">
+                                <a href="/category/clothes" class="dropdown__link hover:text-[#F98538]">
                                     <i class="ri-pie-chart-line"></i> Clothes
                                 </a>
                             </li>
                             <li>
-                                <a href="foods" class="dropdown__link hover:text-[#F98538]">
+                                <a href="/category/foods" class="dropdown__link hover:text-[#F98538]">
                                     <i class="ri-arrow-up-down-line"></i> Foods
                                 </a>
                             </li>
                             <li>
-                                <a href="beverages" class="dropdown__link hover:text-[#F98538]">
+                                <a href="/category/beverages" class="dropdown__link hover:text-[#F98538]">
                                     <i class="ri-arrow-up-down-line"></i> Beverages
                                 </a>
                             </li>
                             <li>
-                                <a href="accessories" class="dropdown__link hover:text-[#F98538]">
+                                <a href="/category/ccessories" class="dropdown__link hover:text-[#F98538]">
                                     <i class="ri-arrow-up-down-line"></i> Accessories
                                 </a>
                             </li>

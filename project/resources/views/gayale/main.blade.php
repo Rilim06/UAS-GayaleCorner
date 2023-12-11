@@ -1,8 +1,9 @@
 <head>
     @vite('resources/css/app.css')
     @vite('resources/css/dashboard.css')
-    <!-- @vite('resources/css/navbar.css') -->
+    @vite('resources/css/navbar.css')
     @vite('resources/js/index.js')
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
