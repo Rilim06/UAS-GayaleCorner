@@ -1,6 +1,9 @@
 <head>
-    @vite('resources/css/app.css')
-    @vite('resources/css/edit.css')
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
 </head>
 
 <body>

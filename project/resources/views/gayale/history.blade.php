@@ -1,13 +1,14 @@
 <head>
-    @vite('resources/css/app.css')
-    @vite('resources/css/dashboard.css')
-    <!-- @vite('resources/css/navbar.css') -->
-    @vite('resources/js/index.js')
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/history.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="{{ asset('css/history.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 
 <body>
@@ -22,65 +23,36 @@
                     <i class="ri-close-line nav__close"></i>
                 </div>
             </div>
-
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list ">
                     <li class="dropdown__item">
-                        <div class="nav__link">
-                            <div class="hover:text-[#F98538]">Categories</div>
-                        </div>
+                        <div class="nav__link hover:text-[#F98538]">Categories</div>
                         <ul class="dropdown__menu">
                             <li>
-                                <a href="/category/clothes" class="dropdown__link hover:text-[#F98538]">
-                                    <i class="ri-pie-chart-line"></i> Clothes
+                                <a href="category/clothes" class="dropdown__link hover:text-[#F98538]">
+                                    <i class="ri-t-shirt-2-fill"></i> Clothes
                                 </a>
                             </li>
                             <li>
-                                <a href="/category/foods" class="dropdown__link hover:text-[#F98538]">
-                                    <i class="ri-arrow-up-down-line"></i> Foods
+                                <a href="category/foods" class="dropdown__link hover:text-[#F98538]">
+                                    <i class="ri-restaurant-2-fill"></i> Foods
                                 </a>
                             </li>
                             <li>
-                                <a href="/category/beverages" class="dropdown__link hover:text-[#F98538]">
-                                    <i class="ri-arrow-up-down-line"></i> Beverages
+                                <a href="category/beverages" class="dropdown__link hover:text-[#F98538]">
+                                    <i class="ri-drinks-2-fill"></i> Beverages
                                 </a>
                             </li>
                             <li>
-                                <a href="/category/ccessories" class="dropdown__link hover:text-[#F98538]">
-                                    <i class="ri-arrow-up-down-line"></i> Accessories
+                                <a href="category/accessories" class="dropdown__link hover:text-[#F98538]">
+                                    <i class="ri-circle-fill"></i> Accessories
                                 </a>
                             </li>
                             <li>
-                                <a href="others" class="dropdown__link hover:text-[#F98538]">
-                                    <i class="ri-arrow-up-down-line"></i> Others
+                                <a href="category/others" class="dropdown__link hover:text-[#F98538]">
+                                    <i class="ri-archive-stack-fill"></i> Others
                                 </a>
                             </li>
-
-                            <!-- <li class="dropdown__subitem">
-                                <div class="dropdown__link">
-                                    <i class="ri-bar-chart-line"></i> Reports <i class="ri-add-line dropdown__add"></i>
-                                </div>
-
-                                <ul class="dropdown__submenu">
-                                    <li>
-                                        <a href="#" class="dropdown__sublink">
-                                            <i class="ri-file-list-line"></i> Documents
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="dropdown__sublink">
-                                            <i class="ri-cash-line"></i> Payments
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="dropdown__sublink">
-                                            <i class="ri-refund-2-line"></i> Refunds
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li> -->
                         </ul>
                     </li>
                     <li class="dropdown__item">
@@ -93,21 +65,12 @@
                             <a class="hover:text-[#F98538]" href="/cart">Cart</a>
                         </div>
                     </li>
-                    <!-- <li><a href="#" class="nav__link">Products</a></li> -->
-
                     <li>
-                        <form method="post" action="{{route('logout')}}" class="nav__link p-6">
+                        <form method="post" action="{{route('logout')}}" class="nav__link">
                             @csrf
                             <button class="hover:text-[#F98538]" type='submit'>Logout</button>
                         </form>
                     </li>
-                    <!-- <li><a href='/login'>
-                            <h1 class="nav__link font-[700] text-[#F98538] hover:text-white rounded-md bg-transparent hover:bg-[#F98538]">Login</h1>
-                        </a></li>
-                    <li><a href='/register'>
-                            <h1 class="nav__link font-[700] bg-[#F98538] text-white rounded-md hover:text-[#F98538] hover:bg-white" id="designregister">Register</h1>
-                        </a></li> -->
-                    <!-- <li><a href="#" class="nav__link">Contact</a></li> -->
                 </ul>
             </div>
         </nav>
@@ -117,10 +80,10 @@
             @foreach($groupedTransactions as $transactionID => $transactions)
             @php
             $status = 'Unknown';
-    
+
             if ($transactions->isNotEmpty()) {
             $firstTransaction = $transactions->first();
-    
+
             if ($firstTransaction->status == 0) {
             $status = 'Pending';
             } elseif ($firstTransaction->status == 1) {
@@ -146,35 +109,32 @@
             </div>
 
             <div>
-                
+
             </div>
-    
+
             <!-- Untuk per transactions -->
             <br />
             <br />
             @endforeach
         </div>
     </div>
-    <footer class="footer bottom-0 w-full mt-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 pl-0 md:pl-8 items-center">
+    <footer class="footer absolute bottom-0 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 pl-0 md:pl-8 items-center">
             <div class="footer-col px-10">
-                <h1 class="text-6xl lg:text-4xl xl:text-3xl"><span class="text-white font-[800]">Gayale</span><span class="text-[#F98538] font-[800]">Corner</span></h1>
-                <br>
-                <h5 class="text-3xl lg:text-xl text-white">Many things. All in one
+                <h1 class="text-3xl md:text-5xl"><span class="text-white font-[800]">Gayale</span><span class="text-[#F98538] font-[800]">Corner</span></h1>
+                <h5 class="text-xl mt-4 md:text-3xl lg:text-xl text-white">Many things. All in one
                 </h5>
             </div>
-            <div class="footer-col px-10 ml-0 pt-16 lg:pt-0 lg:ml-10">
-                <h4 class="text-5xl lg:text-3xl">Connect Us</h4>
-                <!-- <h5 class="text-white text-lg md:text-xl text-justify">support@GayaleCorner.com</h5> -->
+            <div class="footer-col px-10">
+                <h4 class="text-2xl md:text-4xl lg:text-3xl">Connect with Us</h4>
                 <a href="https://wa.me/6287717955384" target="_blank">
-                    <h5 class="text-white text-3xl lg:text-xl">0877-1795-5384</h5>
+                    <h5 class="text-white text-xl mt-2 md:text-3xl lg:text-xl">0877-1795-5384</h5>
                 </a>
-                <h5 class="text-white text-3xl lg:text-xl mt-2">Bintaro, Tangerang Selatan</h5>
-
+                <h5 class="text-white text-xl mt-2 md:text-3xl lg:text-xl">Bintaro, Tangerang Selatan</h5>
             </div>
-            <div class="footer-col px-10 pt-16 lg:pt-0  ml-0 lg:ml-10  ">
-                <h4 class="text-5xl lg:text-3xl">Follow Us</h4>
-                <div class="social-links text-3xl lg:text-xl">
+            <div class="footer-col px-10">
+                <h4 class="text-2xl md:text-4xl lg:text-3xl">Follow Us</h4>
+                <div class="social-links text-xl mt-2 md:text-3xl lg:text-xl">
                     <a href="https://www.instagram.com/gayale_corner/" target="_blank"><i class="fab fa-instagram"></i>&nbsp;&nbsp;&nbsp;@gayale_corner</a>
                 </div>
             </div>
@@ -187,7 +147,8 @@
             <p>Status: </p><span id="transactionStatus"></span>
         </div>
         <div class="popupLine">
-            <p>Address: </p><p id="transactionAddress"></p>
+            <p>Address: </p>
+            <p id="transactionAddress"></p>
         </div>
         <div class="popupLine">
             <div id="transactionDetails"></div>
@@ -201,19 +162,20 @@
             <p>9000</p>
         </div>
         <div class="popupLine">
-            <p>Total:</p><p id="total"></p>
+            <p>Total:</p>
+            <p id="total"></p>
         </div>
         <div class="popupLine">
             <p>Ordered at: </p>
             <p id="transactionDate"></p>
         </div>
-        
-        
-        
-        
+
+
+
+
         <!-- <p id="tax"></p> -->
-        
-        
+
+
         <a class="closing" onclick='closePopup()'>
             <button class="closeBtn">
                 <span class="X"></span>
@@ -285,4 +247,16 @@
         blur.classList.remove('active');
         popup.classList.remove('active');
     }
+    /*=============== SHOW MENU ===============*/
+    const showMenu = (toggleId, navId) => {
+        const toggle = document.getElementById(toggleId),
+            nav = document.getElementById(navId)
+
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('show-menu')
+
+            toggle.classList.toggle('show-icon')
+        })
+    }
+    showMenu('nav-toggle', 'nav-menu')
 </script>
