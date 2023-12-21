@@ -23,7 +23,7 @@
     <div class="p-4 flex justify-center items-center h-screen">
         <div class="flex flex-col sm:flex-row w-full max-w-screen-lg bg-white shadow-md rounded-lg overflow-hidden">
             <div class="w-full sm:w-1/2 p-6 flex flex-col justify-center">
-                <h1 class="text-white font-bold text-3xl mb-6"><span class="text-[#07213A]">Gayale</span><span class="text-[#F98538]">Corner</span></h1>
+                <h1 class="text-white font-black text-3xl mb-6 "><span class="text-[#07213A]">Gayale</span><span class="text-[#F98538]">Corner</span></h1>
                 <div class="w-full rounded-lg overflow-hidden">
                     {{ $slot }}
                 </div>

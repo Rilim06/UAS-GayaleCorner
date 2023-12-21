@@ -15,13 +15,12 @@
     top: 0;
     right: 0;
     z-index: 99999999;
-    width: 2rem;
     margin-right: 1.25rem;
 }
 
 .closeBtn {
     position: relative;
-    width: 6em;
+    width: 0;
     height: 4em;
     border: none;
     border-top-right-radius: 1rem;

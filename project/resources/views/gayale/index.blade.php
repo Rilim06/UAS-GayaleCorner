@@ -48,13 +48,13 @@
         </nav>
     </header>
     <section class="h-5/6 flex items-center justify-center px-2 md:h-3/4 lg:h-screen">
-        <div class="flex flex-col mt-40 lg:flex-row lg:mt-20">
+        <div class="flex flex-col mt-40 lg:flex-row lg:items-center lg:mt-8 lg:px-8">
             <div class="kiri text-center lg:text-left">
-                <h1 class="text-black font-bold text-3xl md:text-4xl">The Ultimate Destination for Your</h1>
-                <h1 class="text-[#FE8A3B] font-bold text-3xl md:text-4xl">Fashion and Taste!</h1>
+                <h1 class="text-black font-bold text-3xl md:text-4xl 2xl:text-5xl">The Ultimate Destination for Your</h1>
+                <h1 class="text-[#FE8A3B] font-bold text-3xl md:text-4xl 2xl:text-5xl">Fashion and Taste!</h1>
             </div>
             <div class="fotokanan flex justify-center items-center lg:mt-20">
-                <img src="storage/photos/Layer_1.png" alt="" class="lg:w-[80%]">
+                <img src="storage/photos/Layer_1.png" alt="" class="2xl:w-[30rem]">
             </div>
         </div>
     </section>
@@ -62,7 +62,7 @@
         <div class="text-center">
             <h1 class="text-4xl"><span class="text-[#282828] font-[800]">Why Choose Gayale</span><span class="text-[#F98538] font-[800]">Corner?</span></h1>
         </div>
-        <div class="flex flex-col h-full mt-12 md:gap-12 md:mt-20 lg:grid lg:grid-cols-3 lg:h-min">
+        <div class="flex flex-col h-full mt-12 md:gap-12 md:mt-20 lg:grid lg:grid-cols-3 lg:h-min lg:px-8">
             <!-- Car Section -->
             <div class="md:w-full">
                 <div class="items-center">
@@ -126,12 +126,12 @@
             </div>
         </div>
     </section>
-    <section class="h-min lg:h-screen items-center mt-8 md:mt-24 lg:pt-0 ">
+    <section class="h-min items-center mt-8 md:mt-24 lg:pt-0 ">
         <div class="text-center">
             <h1 class="text-4xl"><span class="text-[#282828] font-[800]">Our </span><span class="text-[#F98538] font-[800]">Best </span><span class="text-[#282828] font-[800]">Product</span>
             </h1>
         </div>
-        <div class="swiper topSwiper mt-12 aspect-square w-full rounded-xl px-2 lg:aspect-auto md:h-[40rem] lg:h-[30rem] lg:mt-8 xl:h-[35rem] 2xl:h-[40rem]">
+        <div class="swiper topSwiper mt-12 aspect-square w-full rounded-xl px-2 lg:aspect-auto md:h-[40rem] lg:h-[20rem] lg:mt-8 xl:h-[25rem] 2xl:h-[30rem]">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img class="object-contain mx-auto aspect-square h-full rounded-xl" src="storage/photos/swiper (1).jpg" alt=""></div>
                 <div class="swiper-slide"><img class="object-contain mx-auto aspect-square h-full rounded-xl" src="storage/photos/swiper (2).jpg" alt=""></div>
@@ -149,30 +149,29 @@
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-[#f0f5ff]"></path>
         </svg>
     </div>
-    <footer class="footer">
+    <footer class="footer lg:py-12 xl:py-20 2xl:pb-24">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 pl-0 md:pl-8 items-center">
             <div class="footer-col px-10">
-                <h1 class="text-3xl md:text-5xl"><span class="text-white font-[800]">Gayale</span><span class="text-[#F98538] font-[800]">Corner</span></h1>
-                <h5 class="text-xl mt-4 md:text-3xl lg:text-xl text-white">Many things. All in one
+                <h1 class="text-3xl md:text-5xl lg:text-3xl 2xl:text-4xl"><span class="text-white font-[800]">Gayale</span><span class="text-[#F98538] font-[800]">Corner</span></h1>
+                <h5 class="text-xl mt-4 md:text-3xl lg:text-lg 2xl:text-2xl text-white">Many things. All in one
                 </h5>
             </div>
             <div class="footer-col px-10">
-                <h4 class="text-2xl md:text-4xl lg:text-3xl">Connect with Us</h4>
+                <h4 class="text-2xl md:text-4xl lg:text-2xl 2xl:text-3xl">Connect with Us</h4>
                 <a href="https://wa.me/6287717955384" target="_blank">
-                    <h5 class="text-white text-xl mt-2 md:text-3xl lg:text-xl">0877-1795-5384</h5>
+                    <h5 class="text-white text-xl mt-2 md:text-3xl lg:text-lg 2xl:text-2xl">0877-1795-5384</h5>
                 </a>
-                <h5 class="text-white text-xl mt-2 md:text-3xl lg:text-xl">Bintaro, Tangerang Selatan</h5>
+                <h5 class="text-white text-xl mt-2 md:text-3xl lg:text-lg 2xl:text-2xl">Bintaro, Tangerang Selatan</h5>
             </div>
             <div class="footer-col px-10">
-                <h4 class="text-2xl md:text-4xl lg:text-3xl">Follow Us</h4>
-                <div class="social-links text-xl mt-2 md:text-3xl lg:text-xl">
+                <h4 class="text-2xl md:text-4xl lg:text-2xl 2xl:text-3xl">Follow Us</h4>
+                <div class="social-links text-xl mt-2 md:text-3xl lg:text-lg 2xl:text-2xl">
                     <a href="https://www.instagram.com/gayale_corner/" target="_blank"><i class="fab fa-instagram"></i>&nbsp;&nbsp;&nbsp;@gayale_corner</a>
                 </div>
             </div>
         </div>
     </footer>
     <script>
-        console.log(window.innerWidth);
         var swiper = new Swiper(".topSwiper", {
             spaceBetween: 30,
             centeredSlides: true,

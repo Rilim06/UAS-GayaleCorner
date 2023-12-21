@@ -11,9 +11,9 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="relative">
     <header class="header bg-white text-black">
-        <nav class="nav container z-20">
+        <nav class="nav z-20">
             <div class="nav__data">
                 <a href="/gayale" class="nav__logo ml-8">
                     <span class="text-[#282828] font-[800]">Gayale</span><span class="text-[#F98538] font-[800]">Corner</span>
@@ -76,7 +76,8 @@
         </nav>
     </header>
     <div class='all' id='blur'>
-        <div class="cardContainer">
+        <div class="cardContainer h-fit {{ count($groupedTransactions) === 0 ? 'h-screen' : '' }}">
+            <h3 class="font-bold text-5xl mt-32 sm:mt-40 text-center lg:text-3xl xl:mt-28 xl:text-4xl">History</h3>
             @foreach($groupedTransactions as $transactionID => $transactions)
             @php
             $status = 'Unknown';
@@ -118,23 +119,23 @@
             @endforeach
         </div>
     </div>
-    <footer class="footer absolute bottom-0 w-full">
+    <footer class="footer w-full mt-8 {{ count($groupedTransactions) === 0 ? 'absolute bottom-0' : '' }}">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 pl-0 md:pl-8 items-center">
             <div class="footer-col px-10">
-                <h1 class="text-3xl md:text-5xl"><span class="text-white font-[800]">Gayale</span><span class="text-[#F98538] font-[800]">Corner</span></h1>
-                <h5 class="text-xl mt-4 md:text-3xl lg:text-xl text-white">Many things. All in one
+                <h1 class="text-3xl md:text-5xl lg:text-3xl 2xl:text-4xl"><span class="text-white font-[800]">Gayale</span><span class="text-[#F98538] font-[800]">Corner</span></h1>
+                <h5 class="text-xl mt-4 md:text-3xl lg:text-lg 2xl:text-2xl text-white">Many things. All in one
                 </h5>
             </div>
             <div class="footer-col px-10">
-                <h4 class="text-2xl md:text-4xl lg:text-3xl">Connect with Us</h4>
+                <h4 class="text-2xl md:text-4xl lg:text-2xl 2xl:text-3xl">Connect with Us</h4>
                 <a href="https://wa.me/6287717955384" target="_blank">
-                    <h5 class="text-white text-xl mt-2 md:text-3xl lg:text-xl">0877-1795-5384</h5>
+                    <h5 class="text-white text-xl mt-2 md:text-3xl lg:text-lg 2xl:text-2xl">0877-1795-5384</h5>
                 </a>
-                <h5 class="text-white text-xl mt-2 md:text-3xl lg:text-xl">Bintaro, Tangerang Selatan</h5>
+                <h5 class="text-white text-xl mt-2 md:text-3xl lg:text-lg 2xl:text-2xl">Bintaro, Tangerang Selatan</h5>
             </div>
             <div class="footer-col px-10">
-                <h4 class="text-2xl md:text-4xl lg:text-3xl">Follow Us</h4>
-                <div class="social-links text-xl mt-2 md:text-3xl lg:text-xl">
+                <h4 class="text-2xl md:text-4xl lg:text-2xl 2xl:text-3xl">Follow Us</h4>
+                <div class="social-links text-xl mt-2 md:text-3xl lg:text-lg 2xl:text-2xl">
                     <a href="https://www.instagram.com/gayale_corner/" target="_blank"><i class="fab fa-instagram"></i>&nbsp;&nbsp;&nbsp;@gayale_corner</a>
                 </div>
             </div>
