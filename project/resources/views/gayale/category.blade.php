@@ -73,7 +73,7 @@
                 </div>
             </nav>
         </header>
-        <div class="px-4 h-fit {{ count($products) === 0 ? 'h-screen' : '' }}">
+        <div class="px-4 h-fit 2xl:h-screen {{ count($products) === 0 ? 'h-screen' : '' }}">
             <h3 class="font-bold text-5xl mt-32 sm:mt-40 text-center lg:text-3xl xl:mt-28 xl:text-4xl">Categories</h3>
             <div class="menu-container mt-4">
                 <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">

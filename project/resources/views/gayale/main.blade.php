@@ -112,7 +112,7 @@
             </div>
         </div>
         <footer class="footer mt-4 w-full">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 pl-0 md:pl-8 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 px-0 md:px-8 items-center">
                 <div class="footer-col px-10">
                     <h1 class="text-3xl md:text-5xl lg:text-3xl 2xl:text-4xl"><span class="text-white font-[800]">Gayale</span><span class="text-[#F98538] font-[800]">Corner</span></h1>
                     <h5 class="text-xl mt-4 md:text-3xl lg:text-lg 2xl:text-2xl text-white">Many things. All in one
@@ -159,7 +159,7 @@
                     </div>
                     <input type="hidden" id="productId" name="productId" value="">
                     <input type="hidden" id="productPriceHidden" name="productPrice" value="">
-                    <button type="submit" class="bg-[#F98538] hover:bg-[#ff9854] focus:bg-[#d16f2e] text-white text-xl mt-8 mx-auto rounded-full flex items-center gap-4 px-4 py-2 sm:text-4xl lg:text-xl lg:px-4 lg:py-2 lg:gap-2 xl:text-2xl">
+                    <button type="submit" class="bg-[#F98538] hover:bg-[#ff9854] focus:bg-[#d16f2e] text-white text-xl mt-8 mx-auto rounded-full flex items-center gap-4 px-4 py-2 sm:text-3xl sm:px-6 sm:py-3 lg:text-xl lg:px-4 lg:py-2 lg:gap-2 xl:text-2xl">
                         <img class="w-4 sm:w-8 lg:w-6 xl:w-5" src="storage/photos/Add.svg" alt="">
                         <p>Cart</p>
                     </button>
